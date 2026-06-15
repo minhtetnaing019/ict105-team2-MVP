@@ -9,7 +9,7 @@ team2
 | Student ID | Name | Role | Main Responsibility |
 |------------|------|------|---------------------|
 | 6509785 | Min Htet Naing | Team Lead | Coordination, Code review |
-| 6807860 | Min Myat Maung | | |
+| 6807860 | Min Myat Maung | UI/UX Lead | Design Interface |
 | 6807960 | Eaint Shwe Sin | | |
 | 6609015 | Shwe Yi Htet | | |
 
@@ -26,3 +26,5 @@ team2
 3. **File naming rule:** TBD
 4. **GitHub commit rule:** TBD
 5. **Conflict resolution rule:** TBD
+
+
