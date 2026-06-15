@@ -22,7 +22,7 @@ team2
 ## Team Working Agreement
 
 1. **Meeting schedule:** When needed
-2. **Communication channel:** Discord
+2. **Communication channel:** Discord, Line
 3. **File naming rule:** TBD
 4. **GitHub commit rule:** TBD
 5. **Conflict resolution rule:** TBD
