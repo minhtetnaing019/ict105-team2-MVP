@@ -11,6 +11,7 @@ team2
 | 6509785 | Min Htet Naing | Team Lead | Coordination, Code review |
 | 6807860 | Min Myat Maung | | |
 | 6807960 | Eaint Shwe Sin | | |
+| 6609015 | Shwe Yi Htet | | |
 
 ## Team Skills Inventory
 
