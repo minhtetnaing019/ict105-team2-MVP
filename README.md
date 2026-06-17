@@ -1,4 +1,4 @@
-# README
+# ICT105 Lab Project
  
 ## Selected IT Venture Direction
 Our team selected a peer tutoring booking platform. The target users are university students who need academic help in specific subjects and currently rely on word-of-mouth or informal chat group posts to find a tutor, with no structured way to check availability or book a session. We selected this idea because it is useful, feasible, and can be prototyped as a web-based tutor listing and booking system without hardware devices.
