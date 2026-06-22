@@ -8,3 +8,24 @@ In Lab 02, we reviewed six possible IT opportunities, scored them using NUF, and
  
 ## Next Step
 In Lab 03, we will prepare customer discovery questions and collect evidence from target users.
+
+## Customer Problem Discovery Summary
+In Lab 03, our team collected early problem evidence from target users. The purpose was to confirm whether our selected problem from Lab 02 is real and important.
+
+## Target Respondents
+We interviewed and surveyed undergraduate students:
+- 8 short interviews with students who have needed academic help or have informally tutored others.
+- 14 survey responses from students across different faculties, especially those in exam-heavy courses.
+
+## Main Evidence Found
+- The problem occurs **2–3 times per semester**, concentrated around exam periods.
+- Students rely on **informal networks** (chat groups, asking friends) that are slow and unreliable.
+- Tutors are willing but lack visibility — they said they would tutor more if students could find them easily.
+- Respondents rated severity at **4/5 on average**, with consequences including going into exams unprepared or settling for tutors they weren’t confident in.
+
+## Updated Problem Statement
+Students frequently struggle to find reliable peer tutors during exam periods. Current informal methods are slow and unreliable, leading to stress and poor exam preparation. While willing tutors exist, the lack of visibility and structured discovery prevents effective matching.
+
+## Decision for Next Step
+The team will **continue with the peer tutoring booking platform**, narrowing the focus to exam-period demand. We will prioritize features that improve tutor visibility and quick discovery, while exploring lightweight trust mechanisms (ratings or feedback) to address quality concerns.
+
