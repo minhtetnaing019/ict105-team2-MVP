@@ -48,3 +48,37 @@ The team rejected the Canteen Menu & Queue Status Board idea. While useful in co
 - Commit link: [insert commit URL here]
 ### Plan for Lab 03
 The team will prepare a set of customer discovery questions focused on validating demand for peer tutoring among students, identify and approach a small sample of target users (both potential tutors and students seeking tutoring), and conduct short interviews or surveys to determine whether enough students would be willing to act as tutors to make the platform viable.
+
+## Lab 03: Customer Problem Discovery
+
+### What We Completed
+1.
+2.
+3.
+
+### What We Learned About the Problem
+1.
+2.
+3.
+
+### What Evidence We Collected
+- Number of respondents/interviews:
+- Evidence file:
+- Key repeated pattern:
+
+### What We Changed Based on Evidence
+
+### Problems or Difficulties
+1.
+2.
+
+### Evidence of Work
+- GitHub repository link:
+- Customer questions file:
+- Raw responses file:
+- Assumption-evidence table:
+- Commit link:
+
+### Plan for Lab 04
+Write how the team will define customer segment, persona, and user stories.
+
