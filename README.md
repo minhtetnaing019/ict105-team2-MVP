@@ -27,6 +27,7 @@ We interviewed and surveyed undergraduate students:
 ## Updated Problem Statement
 Students frequently struggle to find reliable peer tutors during exam periods. Current informal methods are slow and unreliable, leading to stress and poor exam preparation. While willing tutors exist, the lack of visibility and structured discovery prevents effective matching.
 
+
 ## Decision for Next Step
 The team will **continue with the peer tutoring booking platform**, narrowing the focus to exam-period demand. We will prioritize features that improve tutor visibility and quick discovery, while exploring lightweight trust mechanisms (ratings or feedback) to address quality concerns.
 
