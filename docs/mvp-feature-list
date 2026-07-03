@@ -1,0 +1,40 @@
+# Lab 04 - MVP Feature List
+
+## MVP Decision Rule
+The MVP should include the smallest set of features that can demonstrate the core problem-solution fit by the end of the semester — specifically, that students can quickly find and book a visible, available tutor instead of relying on informal chat groups.
+
+## MoSCoW Prioritization
+
+| Feature ID | Feature Name | Problem Solved | Related User Story | Priority (Must/Should/Could/Won't) | Technical Complexity (1-5) | User Value (1-5) | Evidence Strength (1-5) | Include in Final Prototype? |
+|---|---|---|---|---|---:|---:|---:|---|
+| F01 | Tutor Search & Filter (by subject/course) | Students can't find tutors for specific subjects; rely on word-of-mouth | US-01 | Must | 2 | 5 | 5 | Yes |
+| F02 | Tutor Profile with Availability Calendar | Tutors are willing but invisible; students can't check availability | US-02 | Must | 3 | 5 | 5 | Yes |
+| F03 | Session Booking / Request Flow | No structured way to book a session; back-and-forth chat is slow | US-03 | Must | 3 | 5 | 5 | Yes |
+| F04 | Tutor Registration & Profile Creation | Tutors have no platform to list their subjects and availability | US-04 | Must | 2 | 4 | 4 | Yes |
+| F05 | Booking Confirmation & Reminder Notifications | Students forget/miss informally arranged sessions | US-05 | Should | 2 | 3 | 3 | Yes |
+| F06 | Basic Rating & Feedback System | Students settle for tutors they aren't confident in; no quality signal | US-06 | Should | 2 | 4 | 4 | Yes |
+| F07 | In-App Messaging (tutor–student) | Coordination currently happens over informal chat groups | US-07 | Should | 3 | 3 | 3 | Maybe |
+| F08 | Exam-Period Demand Highlighting (e.g. "trending subjects") | Demand spikes 2–3x/semester around exams; students need fast discovery during peak | US-08 | Could | 2 | 3 | 4 | No |
+| F09 | Payment/Fee Handling | Enables paid tutoring transactions within the platform | US-09 | Could | 4 | 2 | 1 | No |
+| F10 | AI-Based Tutor Recommendation | Automatically match students to best-fit tutors | US-10 | Could | 5 | 2 | 1 | No |
+| F11 | Group Tutoring Sessions | Allow one tutor to serve multiple students at once | US-11 | Won't | 4 | 2 | 1 | No |
+| F12 | Native Mobile App | Improve accessibility beyond web | US-12 | Won't | 5 | 2 | 1 | No |
+
+## Must-Have Features
+- **Tutor Search & Filter (F01):** Directly addresses the core validated problem — students cannot easily find tutors for their subject. This is the entry point of the platform.
+- **Tutor Profile with Availability Calendar (F02):** Solves the "lack of visibility" issue tutors reported and removes the need for back-and-forth scheduling messages.
+- **Session Booking / Request Flow (F03):** Converts discovery into a structured, trackable booking instead of informal chat arrangements.
+- **Tutor Registration & Profile Creation (F04):** Without tutors on the platform, there is no supply side — this is foundational infrastructure for F01–F03.
+
+## Should-Have Features
+- **Booking Confirmation & Reminders (F05):** Improves reliability of sessions but isn't essential to prove the core matching concept.
+- **Basic Rating & Feedback (F06):** Addresses the "quality confidence" concern from interviews, but the platform can still function and be tested without it in the very first version.
+- **In-App Messaging (F07):** Nice-to-have for coordination, but students already have informal chat channels they could temporarily fall back on.
+
+## Could-Have / Future Features
+- **Exam-Period Demand Highlighting (F08):** Interesting given the evidence that demand spikes around exams, but requires usage data the MVP won't have yet.
+- **Payment Handling (F09):** Adds real transactional value but significant technical/legal complexity for a semester-long prototype.
+- **AI-Based Recommendation (F10):** High complexity, low necessity — simple filtering (F01) can validate the core hypothesis first.
+
+## Not in MVP
+- **Group Tutoring Sessions (F11)** and **Native Mobile App (F12)** are excluded. Group sessions add scheduling and pricing complexity not supported by current evidence (students described one-on-one informal arrangements, not group study needs). A native mobile app is unnecessary for validating the concept — a responsive web prototype is sufficient to test booking behavior within the semester timeframe, and native development complexity (5/5) far outweighs the marginal value it would add at this validation stage.
