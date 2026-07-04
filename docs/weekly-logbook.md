@@ -41,11 +41,10 @@ The team rejected the Canteen Menu & Queue Status Board idea. While useful in co
 2. How to identify and weigh feasibility risks that depend on external parties (such as vendors or drivers) versus risks the team can control directly.
 3. How to document and justify a selected opportunity clearly enough for it to guide the rest of the semester's development work.
 ### Evidence of Work
-- Opportunity scan file: it_venture_idea_log.md
-- NUF scoring file: nuf_evaluation.xlsx
-- Selected opportunity file: selected_opportunity.md
-- GitHub issue screenshot: [insert screenshot file name or link here]
-- Commit link: [insert commit URL here]
+- Opportunity scan file: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/opportunity-scan.md
+- NUF scoring file: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/data/nuf_evaluation%20.xlsx
+- Selected opportunity file: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/selected-opportunity.md
+- Commit log: https://github.com/minhtetnaing019/ict105-team2-MVP/commits/main/
 ### Plan for Lab 03
 The team will prepare a set of customer discovery questions focused on validating demand for peer tutoring among students, identify and approach a small sample of target users (both potential tutors and students seeking tutoring), and conduct short interviews or surveys to determine whether enough students would be willing to act as tutors to make the platform viable.
  
@@ -73,10 +72,62 @@ The team narrowed the problem statement to explicitly reflect the timing and fre
 2. It was difficult to get a clear answer on how students would expect tutor quality or trust to be verified, since this concern wasn't raised proactively by respondents and had to be probed indirectly.
 ### Evidence of Work
 - GitHub repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
-- Customer questions file: customer_discovery_questions.md
-- Raw responses file: [insert raw responses file name or link here]
-- Assumption-evidence table: assumption_evidence_table.md
-- Commit link: [insert commit URL here]
+- Customer discovery summary: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/customer-discovery-summary.md
+- Customer discovery questions: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/customer-questions.md
+- Assumption-evidence table: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/assumptions-evidence-table.md
+- Commit log: https://github.com/minhtetnaing019/ict105-team2-MVP/commits/main/
 ### Plan for Lab 04
 In Lab 04, the team will define the primary customer segment based on the discovery evidence, build a representative user persona capturing goals and frustrations around finding tutoring help, and write user stories in the format "As a [user], I want [goal], so that [reason]" to guide MVP feature prioritization.
+ 
+---
+ 
+## Lab 04: User Personas, User Stories, and MVP Definition
+ 
+### What We Completed
+1. Wrote a representative user persona ("Shwe Yi," Year 2 International Student) capturing core goals, pain points, and current workarounds directly tied to Lab 03 evidence.
+2. Defined 16 user stories in standard format ("As a [role], I want [goal], so that [benefit]"), each with acceptance criteria, related functional requirements, and priority levels.
+3. Applied MoSCoW prioritization to identify four Must-Have MVP features directly traceable to Lab 03 discovery evidence.
+4. Created a traceability matrix linking every user story to functional requirements and every feature to the problems identified in customer discovery.
+### MVP Features Selected
+All four Must-Have features are directly evidence-backed from Lab 03:
+ 
+| Feature | Problem Solved | Lab 03 Evidence |
+|---------|----------------|-----------------|
+| **F01: Tutor Search by Subject** | Students cannot find tutors for specific subjects; they rely on slow, unreliable informal networks (chat groups, asking friends) | "Students rely on informal, relationship-based methods" |
+| **F02: Tutor Availability Display** | No structured way to check when tutors are available | "No structured way to check availability" |
+| **F03: Session Booking Request** | Students settle for tutors they aren't confident in due to slow, informal arrangement process | "Settling for a tutor they weren't confident in" |
+| **F04: Tutor Profile Listing** | Tutors are willing to tutor but lack visibility to students who need help | "Tutors are willing but lack visibility" |
+ 
+### What We Learned
+1. How to translate raw discovery evidence into specific, actionable user stories with testable acceptance criteria.
+2. The importance of traceability: every user story, feature, and requirement should map back to a specific piece of evidence or a deliberately documented team assumption.
+3. How to use MoSCoW prioritization not as a guessing game, but as a discipline: only features directly tied to Lab 03 evidence are marked Must-Have; any feature beyond these four (ratings, messaging, payments, mobile app) is explicitly deferred because the evidence doesn't support it.
+4. How to identify a minimum viable product: the four core features represent the smallest set that directly addresses the core problem statement and validates problem-solution fit.
+### Key Decisions Made
+1. **Scope Discipline:** The team explicitly rejected adding features like tutor ratings, real-time messaging, online payments, and exam-period highlighting, even if intuitive, because no respondent directly requested them in Lab 03. These are deferred as Should-Have or Could-Have features pending future evidence.
+2. **Evidence Traceability:** Every Must-Have feature has a direct quote or specific statement from the Lab 03 summary. Should-Have and Could-Have features are either unsupported or flagged as team inference rather than customer demand.
+3. **User Story Quality:** Acceptance criteria are written in Gherkin format (Given–When–Then) to ensure they are testable and observable in the final prototype.
+### Problems or Difficulties
+1. Resisting feature creep: the team had to actively decline several intuitive but unvalidated features (e.g., automatic matching, AI recommendations, real-time notifications) to keep the MVP scope tight.
+2. Defining acceptance criteria that are concrete enough to be testable but general enough to permit different technical implementations (e.g., "tutor details are displayed" vs. specifying exact page layout).
+### Evidence of Work
+- GitHub repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- User persona file: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/user-persona.md
+- User stories file: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/user-stories.md
+- MVP feature list: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/mvp-feature-list.md
+- Traceability matrix: included in user stories document
+- Commit log: https://github.com/minhtetnaing019/ict105-team2-MVP/commits/main/
+### What We Changed Based on Evidence
+From Lab 03 to Lab 04, the team refined the problem statement and feature scope to be purely evidence-backed. Features were only included in the MVP if they directly answered a specific pain point or goal mentioned by respondents. For example, "Tutor Search by Subject" was included because respondents explicitly said they struggle to find tutors for specific subjects; "Real-Time Notifications," while valuable, was excluded because no respondent mentioned wanting instant updates.
+ 
+### Plan for Lab 05
+In Lab 05, the team will begin prototyping the MVP. The deliverable will be a clickable, functional prototype (using HTML, CSS, and JavaScript, or a low-code tool) that demonstrates all four Must-Have features. The prototype will include:
+- A homepage introducing the platform
+- A tutor search and filter interface (by subject)
+- Tutor profile pages showing subjects and availability
+- A booking request form and confirmation flow
+- A page to view bookings and track status
+- Basic form validation and user feedback
+- An admin dashboard to view and update booking status
+The prototype will be tested against each user story's acceptance criteria to ensure every feature is observable and functional.
  
