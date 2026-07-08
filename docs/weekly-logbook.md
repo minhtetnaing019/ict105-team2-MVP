@@ -133,7 +133,7 @@ The prototype will be tested against each user story's acceptance criteria to en
  
 ---
 
-# Weekly Logbook - Lab 05
+Lab 05
 
 ## Group Name
 "team2"
