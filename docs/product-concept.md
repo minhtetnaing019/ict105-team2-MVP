@@ -66,11 +66,3 @@ The following features are not included in the current semester MVP:
 - AI-based automatic item matching
 
 ---
-
-## Expected Benefits
-
-- Faster reporting process
-- Easy searching of lost and found items
-- Better record management
-- Improved communication between students and administrators
-- More efficient recovery of lost belongings
