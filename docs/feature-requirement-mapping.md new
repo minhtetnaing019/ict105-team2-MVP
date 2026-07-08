@@ -1,37 +1,16 @@
 # Feature-Requirement Mapping
 
-This document shows how each feature of the **Smart Campus Lost-and-Found System** maps to the functional requirements, user stories, wireframes, and final prototype modules.
+Use this file to prove that your wireframe and final prototype are not random screens. Every planned screen and feature must connect to `system-requirements.md`.
 
 | Feature ID | Feature / Screen | Requirement ID | User Story ID | Purpose | Wireframe File | Final Prototype Module |
 |---|---|---|---|---|---|---|
-| F-01 | Homepage / Landing Page | FR-01, FR-02 | US-01 | Introduce the system, explain the problem, and provide navigation to report or search items | `/wireframes/homepage.png` | `/prototype/index.html` |
-| F-02 | Lost Item Report Form | FR-03, FR-10, FR-11 | US-02 | Allow users to submit lost item reports with validation and confirmation | `/wireframes/input-form.png` | `/prototype/report-lost.html` |
-| F-03 | Found Item Report Form | FR-03, FR-10, FR-11 | US-03 | Allow users to submit found item reports with validation and confirmation | `/wireframes/input-form.png` | `/prototype/report-found.html` |
-| F-04 | Item Records List | FR-05, FR-06 | US-04 | Display all lost and found items with search and filter options | `/wireframes/record-list.png` | `/prototype/items.html` |
-| F-05 | Item Detail View | FR-07, FR-08 | US-05 | Display complete information and current status of a selected item | `/wireframes/detail-view.png` | `/prototype/item-detail.html` |
-| F-06 | Admin Management | FR-09, FR-08 | US-06 | Enable administrators to verify reports, update item status, edit, and delete records | `/wireframes/admin-view.png` | `/prototype/admin.html` |
-| F-07 | Dashboard Summary | FR-12 | US-07 | Display summary statistics such as total reports, lost items, found items, and returned items | `/wireframes/dashboard.png` | `/prototype/dashboard.html` |
-
----
-
-## Requirement Traceability
-
-| Requirement ID | Implemented Feature(s) |
-|---|---|
-| FR-01 | Homepage |
-| FR-02 | Homepage Navigation |
-| FR-03 | Lost Item Report Form, Found Item Report Form |
-| FR-05 | Item Records List |
-| FR-06 | Search and Filter |
-| FR-07 | Item Detail View |
-| FR-08 | Item Status Display and Update |
-| FR-09 | Admin Management |
-| FR-10 | Form Validation |
-| FR-11 | Confirmation Message |
-| FR-12 | Dashboard Summary |
-
----
-
-## Summary
-
-Every planned screen in the **Smart Campus Lost-and-Found System** is directly linked to the project's functional requirements and user stories. This traceability ensures that all wireframes and prototype pages support the project objectives and contribute to the Minimum Viable Product (MVP).
+| F-01 | Homepage / landing screen | FR-01 | US-01 | Introduce the platform and provide the main "Book Tutor" action | /wireframes/homepage.png | /prototype/prototype.html (Home screen) |
+| F-02 | Booking form | FR-02, FR-03, FR-10, FR-11 | US-02, US-03, US-10, US-11 | Let students select a tutor, submit session details, see validation errors, and get a confirmation message | /wireframes/input-form.png | /prototype/prototype.html (Book a Session screen) |
+| F-03 | Tutor list | FR-05, FR-06 | US-05, US-06 | Let students browse, search, and filter available tutors by subject | /wireframes/record-list.png | /prototype/prototype.html (Find Tutors screen) |
+| F-04 | Tutor detail view | FR-07, FR-08, FR-15 | US-07, US-08, US-15 | Show full tutor profile, schedule/status, and only necessary contact info | /wireframes/detail-view.png | /prototype/prototype.html (Tutor Profile screen) |
+| F-05 | Admin management view | FR-08, FR-09 | US-08, US-09 | Allow admins to approve tutors and update booking status | /wireframes/admin-view.png | /prototype/prototype.html (Admin screen) |
+| F-06 | Dashboard summary | FR-12 | US-12 | Show booking counts, upcoming sessions, and activity summary | /wireframes/dashboard.png | /prototype/prototype.html (Dashboard screen) |
+| F-07 | Consistent navigation | FR-13 | US-13 | Keep the same nav bar and layout across every screen | All wireframe files | /prototype/prototype.html (shared nav component) |
+| F-08 | Responsive layout | FR-14 | US-14 | Adapt layout for mobile devices *(Should, not Must)* | N/A — layout behavior, not a distinct screen | /prototype/prototype.html (responsive CSS) |
+| F-09 | Booking data storage | FR-04 | US-04 | Persist booking records so they can be retrieved later | N/A — data layer, not a distinct screen | Not yet implemented — backend/data layer pending |
+| F-10 | Requirement traceability | FR-16 | traceability ensures that all wireframes and prototype pages support the project objectives and contribute to the Minimum Viable Product (MVP).
