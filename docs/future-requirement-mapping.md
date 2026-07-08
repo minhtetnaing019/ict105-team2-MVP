@@ -1,37 +1,17 @@
 # Feature-Requirement Mapping
 
-This document shows how each feature of the **Smart Campus Lost-and-Found System** maps to the functional requirements, user stories, wireframes, and final prototype modules.
+Use this file to demonstrate that every wireframe screen and prototype feature is directly linked to the system requirements and user stories.
 
 | Feature ID | Feature / Screen | Requirement ID | User Story ID | Purpose | Wireframe File | Final Prototype Module |
 |---|---|---|---|---|---|---|
-| F-01 | Homepage / Landing Page | FR-01, FR-02 | US-01 | Introduce the system, explain the problem, and provide navigation to report or search items | `/wireframes/homepage.png` | `/prototype/index.html` |
-| F-02 | Lost Item Report Form | FR-03, FR-10, FR-11 | US-02 | Allow users to submit lost item reports with validation and confirmation | `/wireframes/input-form.png` | `/prototype/report-lost.html` |
-| F-03 | Found Item Report Form | FR-03, FR-10, FR-11 | US-03 | Allow users to submit found item reports with validation and confirmation | `/wireframes/input-form.png` | `/prototype/report-found.html` |
-| F-04 | Item Records List | FR-05, FR-06 | US-04 | Display all lost and found items with search and filter options | `/wireframes/record-list.png` | `/prototype/items.html` |
-| F-05 | Item Detail View | FR-07, FR-08 | US-05 | Display complete information and current status of a selected item | `/wireframes/detail-view.png` | `/prototype/item-detail.html` |
-| F-06 | Admin Management | FR-09, FR-08 | US-06 | Enable administrators to verify reports, update item status, edit, and delete records | `/wireframes/admin-view.png` | `/prototype/admin.html` |
-| F-07 | Dashboard Summary | FR-12 | US-07 | Display summary statistics such as total reports, lost items, found items, and returned items | `/wireframes/dashboard.png` | `/prototype/dashboard.html` |
-
----
-
-## Requirement Traceability
-
-| Requirement ID | Implemented Feature(s) |
-|---|---|
-| FR-01 | Homepage |
-| FR-02 | Homepage Navigation |
-| FR-03 | Lost Item Report Form, Found Item Report Form |
-| FR-05 | Item Records List |
-| FR-06 | Search and Filter |
-| FR-07 | Item Detail View |
-| FR-08 | Item Status Display and Update |
-| FR-09 | Admin Management |
-| FR-10 | Form Validation |
-| FR-11 | Confirmation Message |
-| FR-12 | Dashboard Summary |
-
----
-
-## Summary
-
-Every planned screen in the **Smart Campus Lost-and-Found System** is directly linked to the project's functional requirements and user stories. This traceability ensures that all wireframes and prototype pages support the project objectives and contribute to the Minimum Viable Product (MVP).
+| F-01 | Homepage / Landing Page | FR-01 | US-01 | Introduce the platform and provide a clear entry point for students to find tutors. | `/wireframes/homepage.png` | `/prototype/prototype.html` (Home) |
+| F-02 | Tutor Listing | FR-02, FR-03 | US-02, US-03 | Allow students to browse, search, and filter tutors by subject and availability. | `/wireframes/tutor-list.png` | `/prototype/prototype.html` (Find Tutors) |
+| F-03 | Tutor Profile | FR-04, FR-05 | US-04, US-05 | Display tutor information including subjects, availability, ratings, and experience. | `/wireframes/tutor-profile.png` | `/prototype/prototype.html` (Tutor Profile) |
+| F-04 | Booking Form | FR-06, FR-07 | US-06, US-07 | Enable students to book a tutoring session by selecting a tutor, date, and time. | `/wireframes/booking-form.png` | `/prototype/prototype.html` (Book Session) |
+| F-05 | Booking Confirmation | FR-08 | US-08 | Confirm that a booking request has been successfully submitted. | `/wireframes/booking-confirmation.png` | `/prototype/prototype.html` (Confirmation) |
+| F-06 | Student Dashboard | FR-09 | US-09 | Allow students to view their upcoming and previous tutoring sessions. | `/wireframes/student-dashboard.png` | `/prototype/prototype.html` (Dashboard) |
+| F-07 | Tutor Dashboard | FR-10 | US-10 | Allow tutors to manage availability and view incoming booking requests. | `/wireframes/tutor-dashboard.png` | `/prototype/prototype.html` (Tutor Dashboard) |
+| F-08 | Navigation Menu | FR-11 | US-11 | Provide consistent navigation across all pages of the application. | All wireframe files | Shared navigation component |
+| F-09 | Responsive Layout | FR-12 | US-12 | Ensure the interface works well on desktops, tablets, and mobile devices. | N/A (layout behavior) | Responsive CSS |
+| F-10 | Data Management | FR-13 | US-13 | Store tutor profiles and booking information for retrieval and management. | N/A (backend feature) | Backend/database (future implementation) |
+| F-11 | Requirement Traceability | FR-14 | All User Stories | Ensure every system requirement is represented in the wireframes and prototype. | Entire wireframe set | Entire prototype |
