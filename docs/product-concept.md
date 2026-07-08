@@ -1,0 +1,79 @@
+# Product Concept
+
+## 1. Project Title
+**Smart Campus Lost-and-Found System**
+
+---
+
+## 2. Target Users
+
+### Primary Users
+- Students who have lost items on campus.
+- Students who have found items and want to report them.
+
+### Secondary Users
+- Campus staff or administrators who verify reports and update item status.
+
+---
+
+## 3. Problem Statement
+
+Students currently rely on chat groups, social media posts, or visiting the campus office to report and search for lost items. This process is slow, unorganized, and makes it difficult to track the status of reported items.
+
+---
+
+## 4. Proposed IT Product
+
+The **Smart Campus Lost-and-Found System** is a web-based application that enables users to:
+
+- Submit lost item reports.
+- Submit found item reports.
+- Browse available lost and found records.
+- Search and filter items.
+- View detailed information about each item.
+- Track the status of reported items.
+- Allow administrators to verify reports and update item status.
+
+---
+
+## 5. Core Value Proposition
+
+The system provides a centralized platform for managing lost-and-found information. It improves communication, reduces confusion, and allows users to quickly search, report, and track lost or found items.
+
+---
+
+## 6. MVP Scope
+
+The Minimum Viable Product (MVP) will include:
+
+- User registration and login
+- Report lost items
+- Report found items
+- Browse item listings
+- Search and filter items
+- View item details
+- Track report status
+- Admin management of reports
+- Dashboard summary
+
+---
+
+## 7. Out of Scope
+
+The following features are not included in the current semester MVP:
+
+- Real identity verification
+- Online payment features
+- Advanced security implementation
+- Native Android or iOS application
+- AI-based automatic item matching
+
+---
+
+## Expected Benefits
+
+- Faster reporting process
+- Easy searching of lost and found items
+- Better record management
+- Improved communication between students and administrators
+- More efficient recovery of lost belongings
