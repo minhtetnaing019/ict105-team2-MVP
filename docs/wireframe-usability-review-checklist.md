@@ -12,5 +12,5 @@ Use this checklist before submitting Lab 05.
 | The admin view includes at least one management action. | Yes | wireframes/admin-view.png — Approve/Reject, Edit/Delete, Update Status actions |
 | The dashboard shows meaningful summary information. | Yes | wireframes/dashboard.png — booking counts, upcoming sessions, activity summary |
 | Navigation is consistent across screens. | Yes | Same nav bar (Home, Book Session, Find Tutors, Tutor Detail, Dashboard, Admin) on every screenshot |
-| The design uses realistic sample data. | No | Wireframes use placeholder labels ([ Name ], [ Subject ]) rather than real sample data — intentional for low-fidelity stage, per team decision to keep structure-only for this deliverable |
-| Each screen maps to system-requirements.md. | Pending | system-requirements.md not yet written; each screen currently references FR IDs from wireframe-specification.md only (e.g. FR-01, FR-05) |
+| The design uses realistic sample data. | No | Wireframes use placeholder labels ([ Name ], [ Subject ]) rather than real sample data — intentional for low-fidelity stage |
+| Each screen maps to system-requirements.md. | Yes | homepage.png → FR-01; input-form.png → FR-03, FR-10, FR-11; record-list.png → FR-06; detail-view.png → FR-07, FR-15; dashboard.png → FR-05, FR-08, FR-12; admin-view.png → FR-09. See system-requirements.md traceability matrix. |
