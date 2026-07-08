@@ -1,44 +1,41 @@
 # Product Concept
 
 ## 1. Project Title
-**Smart Campus Lost-and-Found System**
+Peer Tutoring Booking Platform
 
----
+## 2. Target User
+**Primary User:** University students who need academic support in specific subjects.
 
-## 2. Target Users
-
-### Primary Users
-- Students who have lost items on campus.
-- Students who have found items and want to report them.
-
-### Secondary Users
-- Campus staff or administrators who verify reports and update item status.
-
----
+**Secondary User:** Student peer tutors who offer tutoring sessions and manage their availability.
 
 ## 3. Problem Statement
-
-Students currently rely on chat groups, social media posts, or visiting the campus office to report and search for lost items. This process is slow, unorganized, and makes it difficult to track the status of reported items.
-
----
+University students struggle to find reliable peer tutors during exam periods because they rely on informal methods such as chat groups and asking friends. These methods are slow, unreliable, and make it difficult to find available tutors.
 
 ## 4. Proposed IT Product
-
-The **Smart Campus Lost-and-Found System** is a web-based application that enables users to:
-
-- Submit lost item reports.
-- Submit found item reports.
-- Browse available lost and found records.
-- Search and filter items.
-- View detailed information about each item.
-- Track the status of reported items.
-- Allow administrators to verify reports and update item status.
-
----
+A web-based peer tutoring booking platform that allows students to browse tutor profiles, search by subject, view tutor availability, book tutoring sessions, and receive booking confirmations. Tutors can manage their profiles and available time slots.
 
 ## 5. Core Value Proposition
+The platform provides a centralized and structured way for students to discover and book peer tutors, making academic support easier to access while increasing tutor visibility and reducing the time spent searching for help.
 
-The system provides a centralized platform for managing lost-and-found information. It improves communication, reduces confusion, and allows users to quickly search, report, and track lost or found items.
+## 6. MVP Scope
+The MVP will include the following core features:
+
+- Student registration and login
+- Tutor profile listing
+- Search and filter tutors by subject
+- View tutor details and availability
+- Book tutoring sessions
+- Booking confirmation
+- Student dashboard for viewing bookings
+- Tutor dashboard for managing availability and bookings
+
+## 7. Out of Scope for Current Semester
+- Online video tutoring integration
+- In-app messaging or chat
+- Payment processing
+- Tutor verification using university records
+- AI-powered tutor recommendations
+- Native mobile applicationcommunication, reduces confusion, and allows users to quickly search, report, and track lost or found items.
 
 ---
 
