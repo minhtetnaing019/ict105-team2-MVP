@@ -133,7 +133,7 @@ The prototype will be tested against each user story's acceptance criteria to en
  
 ---
 
-##Lab 05 : Product Concept and UI/UX Wireframe**
+## Lab 05 : Product Concept and UI/UX Wireframe**
 
 ## What We Completed Today
 - [x] Reviewed Lab 04 requirements
