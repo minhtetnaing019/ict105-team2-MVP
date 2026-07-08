@@ -133,16 +133,7 @@ The prototype will be tested against each user story's acceptance criteria to en
  
 ---
 
-Lab 05
-
-## Group Name
-"team2"
-
-## Project Title
-**Peer Tutoring Booking Platform**
-
-## Lab 05 Focus
-**Product Concept and UI/UX Wireframe**
+##Lab 05 : Product Concept and UI/UX Wireframe**
 
 ## What We Completed Today
 - [x] Reviewed Lab 04 requirements
