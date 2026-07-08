@@ -131,3 +131,56 @@ In Lab 05, the team will begin prototyping the MVP. The deliverable will be a cl
 - An admin dashboard to view and update booking status
 The prototype will be tested against each user story's acceptance criteria to ensure every feature is observable and functional.
  
+---
+
+# Weekly Logbook - Lab 05
+
+## Group Name
+"team2"
+
+## Project Title
+**Peer Tutoring Booking Platform**
+
+## Lab 05 Focus
+**Product Concept and UI/UX Wireframe**
+
+## What We Completed Today
+- [x] Reviewed Lab 04 requirements
+- [x] Defined product concept
+- [x] Mapped features to requirements
+- [x] Created required wireframe screens
+- [x] Created user flow diagram
+- [x] Built clickable prototype draft or screen navigation plan
+- [x] Updated GitHub repository
+
+## Member Contributions
+
+| Member Name | Contribution | Evidence / Commit Link |
+|---|---|---|
+| Min Htet Naing (6509785) | Defined the product concept and identified core MVP features based on customer discovery evidence. | GitHub commit |
+| Min Myat Maung (6807860) | Created low-fidelity wireframes for the Home, Tutor Listing, Tutor Profile, Booking, and Confirmation screens. | GitHub commit |
+| Eaint Shwe Sin (6807960) | Designed the user flow diagram and planned navigation between screens for the prototype. | GitHub commit |
+| Shwe Yi Htet (6609015) | Updated the GitHub repository, documented progress, and reviewed the wireframes for consistency with user stories. | GitHub commit |
+
+## Decisions Made
+
+| Decision | Reason | Related Requirement |
+|---|---|---|
+| Focus the MVP on tutor discovery and booking only. | Customer discovery showed students mainly struggle with finding available tutors quickly during exam periods. | Product concept and MVP scope |
+| Include tutor profiles with subject, availability, and ratings. | Interview and survey results indicated students want reliable information before choosing a tutor. | Functional requirements |
+| Keep the booking process simple with minimal steps. | A straightforward workflow improves usability and reduces booking time. | UI/UX design |
+| Design the interface primarily for mobile-responsive use. | Most university students access services using their smartphones. | Wireframe and prototype design |
+
+## Problems Found
+
+- Determining which features should be included in the MVP while keeping the scope manageable.
+- Organizing the wireframe layout so that navigation remains simple and intuitive.
+- Ensuring the user flow reflects the user stories created in Lab 04.
+
+## Next Steps Before Lab 06
+
+- Finalize the wireframes based on team feedback.
+- Improve the clickable prototype and verify screen navigation.
+- Review the UI against user stories and MVP requirements.
+- Continue updating the GitHub repository with the latest design files and documentation.
+- Prepare presentation materials and documentation for Lab 06.
