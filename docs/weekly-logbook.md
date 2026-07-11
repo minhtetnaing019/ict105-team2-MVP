@@ -175,3 +175,59 @@ The prototype will be tested against each user story's acceptance criteria to en
 - Review the UI against user stories and MVP requirements.
 - Continue updating the GitHub repository with the latest design files and documentation.
 - Prepare presentation materials and documentation for Lab 06.
+
+---
+
+## Lab 06: Business Model, Technical Architecture, and Data Structure
+
+### Group Name
+team2
+
+### Project Title
+Peer Tutoring Booking Platform
+
+### Date
+2026-07-10
+
+### What We Completed
+1. Defined the business model canvas and reviewed the feature-value mapping against MVP scope.
+2. Reviewed technical architecture options against the Lab 05 wireframes and assessed UI feasibility.
+3. Drafted the data structure (entities, fields, status values) for the prototype.
+4. Consolidated and updated Lab 06 documentation in the GitHub repository.
+
+### Member Contributions
+
+| Member Name | Contribution Today | GitHub Evidence / Commit / File Updated |
+|---|---|---|
+| Min Htet Naing | Coordinated the team's Lab 06 work and wrote the weekly logbook. | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/weekly-logbook.md |
+| Min Myat Maung | Reviewed technical architecture options against wireframes and UI feasibility. | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/technical-architecture.md |
+| Eaint Shwe Sin | Drafted the data structure (entities, fields, status values) for the prototype and reviewed the feature-value mapping. | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/data-structure.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/feature-value-mapping.md |
+| Shwe Yi Htet | Built the business model canvas and case study brief, and updated/consolidated the GitHub repository documentation for Lab 06. | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/business-model-canvas.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/case-study-brief.md |
+
+### Decisions Made Today
+1. **Business model decision:** The platform will remain a free, non-commercial prototype sustained by operational/institutional value (faster tutor discovery) rather than a revenue model, consistent with the Lab 04 MVP scope decision.
+2. **Technical architecture decision:** Build a frontend-only prototype (HTML/CSS/JavaScript) backed by a JSON file or `localStorage`, since it covers all four Must-Have features without requiring hosted backend infrastructure.
+3. **Data structure decision:** Defined three core entities — Tutor, Booking, and Student — with booking status values of Pending, Approved, Completed, and Closed.
+4. **Diagram decision:** No new diagrams were required this week; existing use case and user flow diagrams from Lab 05 remain accurate for the current MVP scope.
+
+### Problems or Risks Found
+- A frontend-only data layer (`localStorage`) does not sync across devices/browsers, which could make a live demo of the student-to-admin booking flow look disconnected. Mitigation is documented in `technical-architecture.md`.
+- The exact conflict-handling rules for booking requests (e.g. two students requesting the same time slot) are not yet defined and need to be resolved before the booking form is built.
+
+### Evidence of Work
+- GitHub repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Business model canvas: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/business-model-canvas.md
+- Case study brief: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/case-study-brief.md
+- Feature-value mapping: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/feature-value-mapping.md
+- Technical architecture: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/technical-architecture.md
+- Data structure: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/data-structure.md
+- Commit log: https://github.com/minhtetnaing019/ict105-team2-MVP/commits/main/
+
+### Next Actions Before Lab 07
+- Resolve booking conflict-handling rules and finalize form validation logic.
+- Begin building the frontend prototype screens based on the Lab 05 wireframes.
+- Populate `/data/` with sample tutor and booking JSON records matching the new data structure.
+- Continue updating the GitHub repository with prototype progress.
+
+### Lecturer / TA Notes
+(For lecturer/TA use.)
