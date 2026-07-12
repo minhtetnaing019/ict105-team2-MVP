@@ -33,3 +33,9 @@ The team has a mix of frontend skills (HTML/CSS/JavaScript) and backend/database
 
 ## 5. What Will Be Simulated?
 - Real tutor accounts/authentication — tutors will be represented as static seed data rather than a full sign-up system.
+- Admin dashboard statistics (FR-12) will use the sample booking dataset rather than live aggregated data from many real users.
+- Mobile responsiveness (FR-14) will be simulated with responsive CSS rather than tested on a full device matrix.
+- Data privacy controls (FR-15) will be simulated by simply omitting sensitive fields from the UI, rather than implementing real access-control/authentication.
+
+## 6. Final Prototype Risk
+The biggest technical risk is that a frontend-only, `localStorage`-based data layer does not persist or sync data across different users' browsers/devices, which could make a live multi-user demo (e.g. student books, admin approves) look disconnected. The team will reduce this risk by using a single shared JSON dataset for the demo walkthrough and, if time permits, migrating booking storage to a lightweight shared backend (Firebase/Supabase) so status updates make by the admin are visible to the student view in real time.
