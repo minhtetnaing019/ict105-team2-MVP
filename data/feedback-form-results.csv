@@ -1,0 +1,6 @@
+tester_code,understood_purpose_1_5,completed_task_1_5,form_clear_1_5,search_useful_1_5,status_clear_1_5,would_use_1_5,most_useful_feature,confusing_part,suggested_improvement
+T01,5,5,4,5,5,5,Tutor search by subject,Time slot format in booking form,Add a clearer time-slot picker
+T02,4,4,4,4,5,4,Tutor profile with availability,None major,Add tutor rating for extra trust
+T03,4,3,3,4,3,4,Tutor profile detail view,Search bar was easy to miss; notes field unclear,Make search bar more visible; add example text in notes field
+T04,5,4,4,4,2,3,Homepage clarity,Booking status labels (Pending/Approved/Completed),Add a legend or tooltip explaining each status
+T05,5,5,5,5,5,5,Booking confirmation message,None,Keep the flow as simple as it is
