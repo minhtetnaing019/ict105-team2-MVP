@@ -1,0 +1,6 @@
+tester_code,tester_type,student_year,experience_with_tutoring,reason_selected
+T01,Student,Year 2,Needed a tutor before,Primary target user (tutee)
+T02,Student,Year 3,Tutored others informally before,Represents tutor-side of marketplace
+T03,Student,Year 1 international student,Needed a tutor before,Needs clear instructions as a new student
+T04,Student,Year 4,No tutoring experience,Can test first-time clarity
+T05,Student,Year 2,Needed a tutor before,Primary target user (tutee)
