@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>StudyBridge — Peer Tutoring Platform Prototype</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#1F2A44;
+    --ink-soft:#4A5670;
+    --paper:#F5F7FA;
+    --card:#FFFFFF;
+    --line:#DDE3ED;
+    --amber:#E8A33D;
+    --amber-dark:#C9821F;
+    --green:#3B8267;
+    --tag-math:#3D5AE8;
+    --tag-cs:#1E8F87;
+    --tag-chem:#B34FA0;
+    --tag-econ:#C9821F;
+    --tag-write:#6A5ACD;
+    --tag-phys:#D14D4D;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Inter',sans-serif; font-size:15px; line-height:1.5;
+  }
+  h1,h2,h3{ font-family:'Fraunces',serif; margin:0; color:var(--ink); }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+
+  /* ---- Top Nav (consistent across all screens) ---- */
+  .topnav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 32px; background:var(--card); border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:10;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .mark{
+    width:30px; height:30px; border-radius:7px; background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--amber); font-family:'Fraunces',serif; font-weight:700; font-size:16px;
+  }
+  .brand span{ font-family:'Fraunces',serif; font-weight:600; font-size:19px; }
+  .navlinks{ display:flex; gap:4px; }
+  .navlinks button{
+    border:none; background:none; padding:9px 14px; border-radius:7px;
+    font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600; color:var(--ink-soft);
+    cursor:pointer; transition:.15s;
+  }
+  .navlinks button:hover{ background:var(--paper); color:var(--ink); }
+  .navlinks button.active{ background:var(--ink); color:#fff; }
+  .navlinks button:focus-visible{ outline:2px solid var(--amber); outline-offset:2px; }
+  .navcta{ display:flex; gap:8px; }
+  .btn{
+    border:none; border-radius:7px; padding:9px 16px; font-weight:600; font-size:13.5px;
+    cursor:pointer; font-family:'Inter',sans-serif; transition:.15s;
+  }
+  .btn:focus-visible{ outline:2px solid var(--amber); outline-offset:2px; }
+  .btn-primary{ background:var(--amber); color:#2A1B00; }
+  .btn-primary:hover{ background:var(--amber-dark); }
+  .btn-ghost{ background:none; border:1px solid var(--line); color:var(--ink); }
+  .btn-ghost:hover{ background:var(--paper); }
+
+  .screen{ display:none; padding:36px; max-width:1080px; margin:0 auto; }
+  .screen.active{ display:block; }
+  .screen-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em;
+    color:var(--amber-dark); text-transform:uppercase; font-weight:600; margin-bottom:6px;
+  }
+
+  /* ---- Homepage ---- */
+  .hero{
+    background:var(--ink); color:#fff; border-radius:16px; padding:56px 48px;
+    display:flex; justify-content:space-between; align-items:center; gap:32px; margin-bottom:28px;
+  }
+  .hero h1{ color:#fff; font-size:38px; font-weight:600; max-width:520px; line-height:1.15; }
+  .hero p{ color:#C6CEDD; max-width:480px; margin-top:14px; font-size:15px; }
+  .hero-actions{ display:flex; gap:12px; margin-top:24px; }
+  .hero-tabs{ display:flex; flex-direction:column; gap:10px; min-width:200px; }
+  .hero-stat{ background:rgba(255,255,255,.08); border-radius:10px; padding:14px 16px; }
+  .hero-stat b{ font-family:'IBM Plex Mono',monospace; font-size:22px; color:var(--amber); display:block; }
+  .hero-stat span{ font-size:12px; color:#B7C0D1; }
+
+  .about-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px; }
+  .about-card{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; }
+  .about-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--amber-dark); font-weight:600; font-size:12px; }
+  .about-card h3{ font-size:16px; margin:8px 0 6px; }
+  .about-card p{ color:var(--ink-soft); font-size:13.5px; margin:0; }
+  .footer{ margin-top:40px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:12.5px; display:flex; justify-content:space-between; }
+
+  /* ---- Booking Form ---- */
+  .form-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:32px; max-width:640px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--ink); }
+  .field .hint{ font-size:11.5px; color:var(--ink-soft); margin-top:4px; }
+  .field input, .field select, .field textarea{
+    width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px;
+    font-family:'Inter',sans-serif; font-size:14px; background:#fff; color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--amber); border-color:var(--amber); }
+  .field.error input{ border-color:var(--tag-phys); }
+  .error-msg{ color:var(--tag-phys); font-size:12px; margin-top:5px; font-weight:600; }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .confirm-banner{
+    background:#E9F5EF; border:1px solid var(--green); color:#1F5C46; border-radius:9px;
+    padding:12px 16px; font-size:13.5px; font-weight:600; margin-bottom:18px; display:flex; gap:8px; align-items:center;
+  }
+
+  /* ---- Tutor List ---- */
+  .list-controls{ display:flex; gap:12px; margin-bottom:20px; }
+  .list-controls input{ flex:1; padding:10px 14px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+  .list-controls select{ padding:10px 14px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff; }
+  .tutor-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .tutor-card{
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;
+    position:relative; overflow:hidden;
+  }
+  .tutor-card::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--tag-color,var(--amber));
+  }
+  .tutor-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .avatar{
+    width:42px; height:42px; border-radius:50%; background:var(--tag-color,var(--amber));
+    color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-family:'Fraunces',serif;
+  }
+  .rating{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber-dark); font-weight:600; }
+  .tutor-card h3{ font-size:16px; margin-top:12px; }
+  .subject-pill{
+    display:inline-block; font-size:11px; font-weight:600; padding:3px 9px; border-radius:20px;
+    background:var(--tag-color,var(--amber)); color:#fff; margin:6px 0 10px;
+  }
+  .avail{ font-size:12.5px; color:var(--ink-soft); margin-bottom:14px; }
+  .view-btn{ width:100%; }
+
+  /* ---- Detail View ---- */
+  .detail-wrap{ display:grid; grid-template-columns:260px 1fr; gap:28px; }
+  .detail-side{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; text-align:center; height:fit-content; }
+  .detail-avatar{
+    width:88px; height:88px; border-radius:50%; margin:0 auto 14px; background:var(--tag-cs);
+    color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:700; font-family:'Fraunces',serif;
+  }
+  .detail-side .contact{ text-align:left; margin-top:18px; font-size:13px; color:var(--ink-soft); }
+  .detail-side .contact div{ margin-bottom:8px; }
+  .detail-main{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:28px; }
+  .status-live{ display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; color:var(--green); margin-bottom:14px; }
+  .status-live::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--green); }
+  .schedule-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px; }
+  .slot{ border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center; font-size:12.5px; }
+  .slot.open{ background:#EFF7FF; border-color:#B9D6F2; color:#1D4E77; font-weight:600; }
+  .slot.full{ color:var(--ink-soft); }
+
+  /* ---- Dashboard ---- */
+  .stat-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+  .stat-card{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; }
+  .stat-card .label{ font-size:12px; color:var(--ink-soft); font-weight:600; }
+  .stat-card .value{ font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:600; margin-top:6px; }
+  .stat-card .delta{ font-size:11.5px; color:var(--green); margin-top:4px; }
+  .panels{ display:grid; grid-template-columns:1.3fr 1fr; gap:20px; }
+  .panel{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
+  .panel h3{ font-size:16px; margin-bottom:14px; }
+  .session-row{ display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
+  .session-row:last-child{ border:none; }
+  .tag-small{ font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; background:var(--paper); color:var(--ink-soft); }
+  .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:12px; font-size:12.5px; }
+  .bar-track{ flex:1; height:8px; background:var(--paper); border-radius:5px; overflow:hidden; }
+  .bar-fill{ height:100%; background:var(--amber); border-radius:5px; }
+
+  /* ---- Admin ---- */
+  .admin-tabs{ display:flex; gap:6px; margin-bottom:18px; }
+  .admin-tabs button{
+    border:1px solid var(--line); background:#fff; padding:8px 14px; border-radius:7px; font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .admin-tabs button.active{ background:var(--ink); color:#fff; border-color:var(--ink); }
+  table{ width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  th{ text-align:left; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); background:var(--paper); padding:12px 14px; }
+  td{ padding:12px 14px; font-size:13.5px; border-top:1px solid var(--line); }
+  .status-pill{ font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+  .status-pending{ background:#FDF0DC; color:var(--amber-dark); }
+  .status-approved{ background:#E4F3EC; color:#1F5C46; }
+  .status-active{ background:#E9F0FE; color:#2C4AB0; }
+  .row-actions{ display:flex; gap:6px; }
+  .icon-btn{ border:1px solid var(--line); background:#fff; border-radius:6px; padding:5px 10px; font-size:12px; cursor:pointer; font-weight:600; }
+  .icon-btn.danger{ color:var(--tag-phys); border-color:#F0C9C9; }
+  .icon-btn:hover{ background:var(--paper); }
+  .admin-search{ margin-bottom:16px; padding:10px 14px; border:1px solid var(--line); border-radius:8px; width:280px; font-size:14px; }
+
+  @media (max-width:800px){
+    .about-grid, .tutor-grid, .stat-row, .row2, .detail-wrap, .panels{ grid-template-columns:1fr; }
+    .hero{ flex-direction:column; align-items:flex-start; }
+    .navlinks{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="brand"><div class="mark">S</div><span>StudyBridge</span></div>
+  <div class="navlinks">
+    <button class="active" onclick="showScreen('home',this)">Home</button>
+    <button onclick="showScreen('book',this)">Book a Session</button>
+    <button onclick="showScreen('list',this)">Find Tutors</button>
+    <button onclick="showScreen('detail',this)">Tutor Profile</button>
+    <button onclick="showScreen('dashboard',this)">Dashboard</button>
+    <button onclick="showScreen('admin',this)">Admin</button>
+  </div>
+  <div class="navcta">
+    <button class="btn btn-ghost">Log in</button>
+    <button class="btn btn-primary">Register</button>
+  </div>
+</div>
+
+<!-- 1. HOMEPAGE -->
+<div class="screen active" id="home">
+  <div class="hero">
+    <div>
+      <div class="screen-tag" style="color:var(--amber)">Exam season starts in 12 days</div>
+      <h1>Find a peer tutor before the material piles up.</h1>
+      <p>Students searching chat groups for last-minute help, tutors nobody can find — StudyBridge puts real availability and ratings in one place so you can book in minutes.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="showScreen('list', document.querySelectorAll('.navlinks button')[2])">Search Tutors</button>
+        <button class="btn btn-ghost" style="background:transparent;color:#fff;border-color:#4A5670;" onclick="showScreen('admin', document.querySelectorAll('.navlinks button')[5])">Become a Tutor</button>
+      </div>
+    </div>
+    <div class="hero-tabs">
+      <div class="hero-stat"><b>128</b><span>tutors listed this semester</span></div>
+      <div class="hero-stat"><b>4.7</b><span>average tutor rating</span></div>
+      <div class="hero-stat"><b>&lt; 1 day</b><span>average time to book</span></div>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card"><div class="num">01</div><h3>Search by subject</h3><p>Filter tutors by course, exam board topic, and open time slots instead of scrolling a chat group.</p></div>
+    <div class="about-card"><div class="num">02</div><h3>Check real ratings</h3><p>See feedback from students who actually sat a session, not just a friend's recommendation.</p></div>
+    <div class="about-card"><div class="num">03</div><h3>Book in one form</h3><p>Pick a time, add context on what you need, and get a confirmed slot — no back-and-forth messaging.</p></div>
+  </div>
+
+  <div class="footer">
+    <span>© 2026 StudyBridge — ICT105 Lab Prototype</span>
+    <span>Home · Find Tutors · Dashboard · Admin</span>
+  </div>
+</div>
+
+<!-- 2. BOOKING FORM -->
+<div class="screen" id="book">
+  <div class="screen-tag">Book a Session</div>
+  <h2 style="font-size:26px;margin-bottom:20px;">Request a tutoring session</h2>
+
+  <div class="confirm-banner">✓ Booking confirmed — Alex Johnson will meet you Thursday 4:00 PM for Data Structures.</div>
+
+  <div class="form-card">
+    <div class="field">
+      <label>Student name</label>
+      <input type="text" value="" placeholder="Your full name">
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>Subject</label>
+        <select>
+          <option>Data Structures & Algorithms</option>
+          <option>Calculus II</option>
+          <option>Organic Chemistry</option>
+          <option>Microeconomics</option>
+          <option>Academic Writing</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Tutor</label>
+        <select>
+          <option>Priya Nair — 4.9★</option>
+          <option>Marcus Webb — 4.7★</option>
+          <option>Any available tutor</option>
+        </select>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>Date</label>
+        <input type="date" value="2026-07-16">
+      </div>
+      <div class="field error">
+        <label>Time</label>
+        <input type="time" value="">
+        <div class="error-msg">Please select a time — this field is required.</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Notes for the tutor <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+      <textarea rows="3" placeholder="e.g. Need help with recursion and Big-O before Friday's quiz"></textarea>
+      <div class="hint">Sharing what you're stuck on helps your tutor prepare examples.</div>
+    </div>
+    <button class="btn btn-primary" style="width:100%;padding:12px;">Submit booking request</button>
+  </div>
+</div>
+
+<!-- 3. TUTOR LIST -->
+<div class="screen" id="list">
+  <div class="screen-tag">Find Tutors</div>
+  <h2 style="font-size:26px;margin-bottom:20px;">Browse available tutors</h2>
+  <div class="list-controls">
+    <input type="text" placeholder="Search by tutor name or keyword...">
+    <select><option>All subjects</option><option>Math</option><option>Computer Science</option><option>Chemistry</option><option>Economics</option><option>Writing</option></select>
+  </div>
+  <div class="tutor-grid">
+    <div class="tutor-card" style="--tag-color:var(--tag-cs)">
+      <div class="tutor-top"><div class="avatar">AJ</div><div class="rating">★ 4.9</div></div>
+      <h3>Alex Johnson</h3>
+      <span class="subject-pill">Data Structures</span>
+      <div class="avail">Open slots: Tue, Thu 3–6 PM</div>
+      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
+    </div>
+    <div class="tutor-card" style="--tag-color:var(--tag-math)">
+      <div class="tutor-top"><div class="avatar">TH</div><div class="rating">★ 4.7</div></div>
+      <h3>Tom Holand</h3>
+      <span class="subject-pill">Calculus II</span>
+      <div class="avail">Open slots: Mon, Wed 5–8 PM</div>
+      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
+    </div>
+    <div class="tutor-card" style="--tag-color:var(--tag-chem)">
+      <div class="tutor-top"><div class="avatar">SL</div><div class="rating">★ 4.8</div></div>
+      <h3>Sara Lindqvist</h3>
+      <span class="subject-pill">Organic Chemistry</span>
+      <div class="avail">Open slots: Fri 1–5 PM</div>
+      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
+    </div>
+    <div class="tutor-card" style="--tag-color:var(--tag-econ)">
+      <div class="tutor-top"><div class="avatar">JM</div><div class="rating">★ 4.6</div></div>
+      <h3>Ji Min</h3>
+      <span class="subject-pill">Microeconomics</span>
+      <div class="avail">Open slots: Tue, Fri 10 AM–1 PM</div>
+      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
+    </div>
+    <div class="tutor-card" style="--tag-color:var(--tag-write)">
+      <div class="tutor-top"><div class="avatar">MT</div><div class="rating">★ 4.9</div></div>
+      <h3>Micheal Tomson</h3>
+      <span class="subject-pill">Academic Writing</span>
+      <div class="avail">Open slots: Mon–Thu evenings</div>
+      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
+    </div>
+    <div class="tutor-card" style="--tag-color:var(--tag-phys)">
+      <div class="tutor-top"><div class="avatar">HQ</div><div class="rating">★ 4.5</div></div>
+      <h3>Herley Queen</h3>
+      <span class="subject-pill">Physics I</span>
+      <div class="avail">Open slots: Wed, Sat 2–5 PM</div>
+      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
+    </div>
+  </div>
+</div>
+
+<!-- 4. TUTOR DETAIL -->
+<div class="screen" id="detail">
+  <div class="screen-tag">Tutor Profile</div>
+  <h2 style="font-size:26px;margin-bottom:20px;">Alex Johnson</h2>
+  <div class="detail-wrap">
+    <div class="detail-side">
+      <div class="detail-avatar">AJ</div>
+      <h3 style="font-size:17px;">Alex Johnson</h3>
+      <div class="rating" style="margin:6px 0;">★ 4.9 (32 sessions)</div>
+      <span class="subject-pill" style="background:var(--tag-cs);">Data Structures</span>
+      <div class="contact">
+        <div>📧 johnson.alex@rsu.ac.th</div>
+        <div>💬 Responds in ~2 hours</div>
+        <div>🎓 3rd-year Computer Science</div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;margin-top:16px;" onclick="showScreen('book', document.querySelectorAll('.navlinks button')[1])">Book Now</button>
+    </div>
+    <div class="detail-main">
+      <div class="status-live">Available this week</div>
+      <h3 style="font-size:18px;">About</h3>
+      <p style="color:var(--ink-soft);font-size:14px;line-height:1.6;">Tutors Data Structures & Algorithms, focusing on recursion, trees, and Big-O analysis. Prefers working through past exam questions rather than re-teaching lecture slides.</p>
+      <h3 style="font-size:18px;margin-top:20px;">Subjects taught</h3>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <span class="subject-pill" style="background:var(--tag-cs);">Data Structures</span>
+        <span class="subject-pill" style="background:var(--tag-math);">Discrete Math</span>
+      </div>
+      <h3 style="font-size:18px;margin-top:22px;">This week's schedule</h3>
+      <div class="schedule-grid">
+        <div class="slot open">Tue 3PM</div>
+        <div class="slot full">Tue 5PM<br>Booked</div>
+        <div class="slot open">Thu 3PM</div>
+        <div class="slot open">Thu 5PM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. DASHBOARD -->
+<div class="screen" id="dashboard">
+  <div class="screen-tag">Your Dashboard</div>
+  <h2 style="font-size:26px;margin-bottom:20px;">Welcome back, Hamilton</h2>
+  <div class="stat-row">
+    <div class="stat-card"><div class="label">Total bookings</div><div class="value">9</div><div class="delta">+2 this month</div></div>
+    <div class="stat-card"><div class="label">Upcoming sessions</div><div class="value">2</div><div class="delta">Next: Thu 4 PM</div></div>
+    <div class="stat-card"><div class="label">Completed sessions</div><div class="value">7</div><div class="delta">100% attendance</div></div>
+    <div class="stat-card"><div class="label">Avg. tutor rating given</div><div class="value">4.8</div><div class="delta">Across 7 reviews</div></div>
+  </div>
+  <div class="panels">
+    <div class="panel">
+      <h3>Upcoming sessions</h3>
+      <div class="session-row"><span>Data Structures — Alex Johnson</span><span class="tag-small">Thu, 4:00 PM</span></div>
+      <div class="session-row"><span>Calculus II — Tom Holand</span><span class="tag-small">Mon, 6:00 PM</span></div>
+      <div class="session-row"><span>Organic Chemistry — Sara Lindqvist</span><span class="tag-small mono">Completed</span></div>
+    </div>
+    <div class="panel">
+      <h3>Sessions by subject</h3>
+      <div class="bar-row"><span style="width:110px;">Data Structures</span><div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div><span>4</span></div>
+      <div class="bar-row"><span style="width:110px;">Calculus II</span><div class="bar-track"><div class="bar-fill" style="width:50%;"></div></div><span>3</span></div>
+      <div class="bar-row"><span style="width:110px;">Chemistry</span><div class="bar-track"><div class="bar-fill" style="width:30%;"></div></div><span>2</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. ADMIN -->
+<div class="screen" id="admin">
+  <div class="screen-tag">Administrator</div>
+  <h2 style="font-size:26px;margin-bottom:20px;">Manage users & bookings</h2>
+  <input class="admin-search" type="text" placeholder="Search users or bookings...">
+  <div class="admin-tabs">
+    <button class="active">Tutor Approvals</button>
+    <button>All Users</button>
+    <button>Bookings</button>
+  </div>
+  <table>
+    <thead><tr><th>Name</th><th>Subject</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Herley Queen</td><td>Physics I</td><td>Tutor (new)</td>
+        <td><span class="status-pill status-pending">Pending</span></td>
+        <td class="row-actions"><button class="icon-btn">Approve</button><button class="icon-btn danger">Reject</button></td>
+      </tr>
+      <tr>
+        <td>Alex Johnson</td><td>Data Structures</td><td>Tutor</td>
+        <td><span class="status-pill status-approved">Approved</span></td>
+        <td class="row-actions"><button class="icon-btn">Edit</button><button class="icon-btn danger">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Lewis Hamilton</td><td>—</td><td>Student</td>
+        <td><span class="status-pill status-active">Active</span></td>
+        <td class="row-actions"><button class="icon-btn">Edit</button><button class="icon-btn danger">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Booking #A-1042</td><td>Calculus II</td><td>Session</td>
+        <td><span class="status-pill status-pending">Awaiting Tutor</span></td>
+        <td class="row-actions"><button class="icon-btn">Update Status</button><button class="icon-btn danger">Cancel</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+function showScreen(id, btn){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.navlinks button').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
