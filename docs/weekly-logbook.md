@@ -231,3 +231,64 @@ Peer Tutoring Booking Platform
 
 ### Lecturer / TA Notes
 (For lecturer/TA use.)
+
+---
+
+## Lab 07: MVP Experiment Design
+
+### Group Information
+- Group name: team2
+- Project title: Peer Tutoring Booking Platform
+- Date: 2026-07-13
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+
+### What We Completed Today
+- [x] Reviewed requirements, user stories, MVP features, architecture, and wireframes
+- [x] Identified critical assumptions
+- [x] Selected MVP experiment type
+- [x] Defined test users and success metrics
+- [x] Prepared experiment script and feedback form
+- [x] Updated GitHub repository and README
+
+### Member Contributions
+
+| Member Name | Contribution | Evidence/Commit/Issue Link |
+|---|---|---|
+| Min Htet Naing | Defined experiment objective and requirement scope for the MVP test | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/mvp-experiment-plan.md |
+| Min Myat Maung | Identified critical assumptions across usability and value proposition | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/critical-assumptions.md |
+| Eaint Shwe Sin | Prepared experiment script and feedback form for testers | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/experiment-script.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/feedback-form.md |
+| Shwe Yi Htet | Defined success metrics, recorded sample test results, updated logbook and README | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/success-metrics.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/data/sample-experiment-results.csv |
+
+### Key Decisions
+
+| Decision | Reason | Evidence/Requirement Link |
+|---|---|---|
+| Run a simple web prototype test rather than a static clickable-only prototype | Need to validate the full search → book → status flow, not just screen navigation | Technical architecture (Lab 06) |
+| Test with 4 tutee-role students and 1 tutor-role student | Covers both sides of the marketplace with a small, feasible sample size | mvp-experiment-plan.md |
+| Use Pending/Approved/Completed/Closed as the only status set for this test | Keeps the experiment scope aligned with the current data structure (Lab 06) | data-structure.md |
+
+### Problems and Next Action
+
+| Problem | Next Action | Responsible Member |
+|---|---|---|
+| One tester (T04) could not complete the status-check task; status labels were unclear | Revise status label wording/tooltips before final prototype build | Min Myat Maung |
+| Booking form's location/time-slot field was ambiguous for one tester | Redesign time-slot selection field for clarity | Eaint Shwe Sin |
+
+### Evidence of Work
+- GitHub repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- MVP experiment plan: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/mvp-experiment-plan.md
+- Critical assumptions: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/critical-assumptions.md
+- Experiment script: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/experiment-script.md
+- Success metrics: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/success-metrics.md
+- Feedback form: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/feedback-form.md
+- Sample experiment results: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/data/sample-experiment-results.csv
+- Sample feedback results: https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/data/sample-feedback-form-results.csv
+- Commit log: https://github.com/minhtetnaing019/ict105-team2-MVP/commits/main/
+
+### Next Actions Before Lab 08
+- Revise booking status labels and time-slot field based on tester confusion.
+- Decide whether metrics meet target and proceed to implementation, per the decision rules in `success-metrics.md`.
+- Begin building the final prototype incorporating fixes identified during this experiment.
+
+### Lecturer / TA Notes
+(For lecturer/TA use.)
