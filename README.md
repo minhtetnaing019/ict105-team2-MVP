@@ -1,66 +1,91 @@
-# ICT105 Lab Project
- 
+# ICT105 Lab Project — Peer Tutoring Booking Platform
+
+## Team
+**team2** — see [`docs/team-profile.md`](docs/team-profile.md) for member roles and skills.
+
 ## Selected IT Venture Direction
-Our team selected a peer tutoring booking platform. The target users are university students who need academic help in specific subjects and currently rely on word-of-mouth or informal chat group posts to find a tutor, with no structured way to check availability or book a session. We selected this idea because it is useful, feasible, and can be prototyped as a web-based tutor listing and booking system without hardware devices.
- 
+Our team selected a peer tutoring booking platform. Target users are university students who need academic help in specific subjects and currently rely on word-of-mouth or informal chat group posts to find a tutor, with no structured way to check availability or book a session. We selected this idea because it is useful, feasible, and can be prototyped as a web-based tutor listing and booking system without hardware devices.
+
+## Problem Statement
+Students frequently struggle to find reliable peer tutors during exam periods. Current informal methods (chat groups, asking friends) are slow and unreliable, leading to stress and poor exam preparation. While willing tutors exist, the lack of visibility and structured discovery prevents effective matching. The problem occurs 2–3 times per semester, concentrated around exam periods, with respondents rating severity 4/5 on average.
+
 ## Current Status
-In Lab 03, we prepared customer discovery questions and collected evidence from target users. We conducted 8 short interviews and received 14 survey responses from undergraduate students who either sought tutoring or had tutored informally. The evidence showed that the problem occurs 2–3 times per semester, concentrated around exam periods. Students rely on informal networks (chat groups, asking friends) that are slow and unreliable, while tutors are willing but lack visibility. Respondents rated the severity of the problem at 4/5 on average, with consequences including poor exam preparation and settling for tutors they weren’t confident in.
+The team has completed customer discovery (Lab 03), defined a user persona and MVP feature scope (Lab 04), produced wireframes and a product concept (Lab 05), defined the business model / technical architecture / data structure (Lab 06), and designed and ran an MVP usability experiment (Lab 07). Next: revise the prototype based on experiment findings and move into implementation.
 
-## Next Step
-In Lab 04, we will define the primary customer segment based on discovery evidence, build a representative user persona capturing goals and frustrations around finding tutoring help, and write user stories in the format "As a [user], I want [goal], so that [reason]" to guide MVP feature prioritization.
+## MVP Feature Scope
+Four Must-Have features, all directly traceable to Lab 03 discovery evidence (see [`docs/mvp-feature-list.md`](docs/mvp-feature-list.md)):
 
+| Feature | Problem Solved |
+|---|---|
+| F01: Tutor Search by Subject | Students rely on slow, informal networks to find subject-specific help |
+| F02: Tutor Availability Display | No structured way to check tutor availability |
+| F03: Session Booking Request | Students settle for tutors they aren't confident in due to slow, informal arrangement |
+| F04: Tutor Profile Listing | Tutors are willing to tutor but lack visibility |
 
-## Customer Problem Discovery Summary
-In Lab 03, our team collected early problem evidence from target users. The purpose was to confirm whether our selected problem from Lab 02 is real and important.
+## Prototype Screens (Wireframes)
 
-## Target Respondents
-We interviewed and surveyed undergraduate students:
-- 8 short interviews with students who have needed academic help or have informally tutored others.
-- 14 survey responses from students across different faculties, especially those in exam-heavy courses.
-
-## Main Evidence Found
-- The problem occurs **2–3 times per semester**, concentrated around exam periods.
-- Students rely on **informal networks** (chat groups, asking friends) that are slow and unreliable.
-- Tutors are willing but lack visibility — they said they would tutor more if students could find them easily.
-- Respondents rated severity at **4/5 on average**, with consequences including going into exams unprepared or settling for tutors they weren’t confident in.
-
-## Updated Problem Statement
-Students frequently struggle to find reliable peer tutors during exam periods. Current informal methods are slow and unreliable, leading to stress and poor exam preparation. While willing tutors exist, the lack of visibility and structured discovery prevents effective matching.
-
----
-
-## Lab 05: Product Concept and UI/UX Wireframe
-
-### Product Concept
-
-The **Peer Tutoring Booking Platform** is a web-based application designed for university students who need academic support and peer tutors who offer tutoring services. The platform solves the problem of finding reliable tutors during exam periods by providing a centralized system where students can search for tutors, view tutor profiles and availability, and book tutoring sessions. This replaces the current reliance on informal methods such as chat groups and word-of-mouth referrals.
-
-### Requirement-Driven Screens
-
-| Screen | Related Requirement IDs | Wireframe File |
+| Screen | Wireframe File | Related Requirements |
 |---|---|---|
-| Homepage / Landing | FR-01 | `/wireframes/homepage.png` |
-| Tutor Listing | FR-02, FR-03 | `/wireframes/tutor-list.png` |
-| Tutor Profile | FR-04, FR-05 | `/wireframes/tutor-profile.png` |
-| Booking Form | FR-06, FR-07 | `/wireframes/booking-form.png` |
-| Booking Confirmation | FR-08 | `/wireframes/booking-confirmation.png` |
-| Student Dashboard | FR-09 | `/wireframes/student-dashboard.png` |
-| Tutor Dashboard | FR-10 | `/wireframes/tutor-dashboard.png` |
+| Homepage / Landing | [`wireframes/homepage.png`](wireframes/homepage.png) | FR-01 |
+| Tutor Listing / Search | [`wireframes/record-list.png`](wireframes/record-list.png) | FR-05, FR-06 |
+| Tutor Detail | [`wireframes/detail-view.png`](wireframes/detail-view.png) | FR-07, FR-08, FR-15 |
+| Booking Form | [`wireframes/input-form.png`](wireframes/input-form.png) | FR-03, FR-10, FR-11 |
+| Dashboard (student bookings / summary) | [`wireframes/dashboard.png`](wireframes/dashboard.png) | FR-05, FR-08, FR-12 |
+| Admin View | [`wireframes/admin-view.png`](wireframes/admin-view.png) | FR-09 |
 
-### User Flow
+Full spec: [`docs/wireframe-specification.md`](docs/wireframe-specification.md). Usability review checklist: [`docs/wireframe-usability-review-checklist.md`](docs/wireframe-usability-review-checklist.md).
 
-The user flow shows the process of how students interact with the platform. Students begin from the homepage, search for available tutors, view tutor details, select a suitable tutor, and submit a booking request. After booking confirmation, students can manage their upcoming tutoring sessions through the dashboard. Tutors can manage their availability and view booking requests.
+## Diagrams
+- Use case diagram: [`diagrams/use case diagram.png`](diagrams/use%20case%20diagram.png)
+- User flow diagram: [`diagrams/user-flow.png`](diagrams/user-flow.png) / [`diagrams/user flow diagram.png`](diagrams/user%20flow%20diagram.png)
+- System architecture diagram: [`diagrams/system architecture diagram.png`](diagrams/system%20architecture%20diagram.png)
 
-User flow diagram:
+## Documentation Index (`/docs`)
 
-- `/diagrams/user-flow.png`
-- or `/diagrams/user-flow.mmd`
+**Opportunity & discovery (Labs 01–03)**
+- [`idea-log.md`](docs/idea-log.md) — initial brainstormed venture ideas
+- [`opportunity-scan.md`](docs/opportunity-scan.md) — NUF-scored comparison of ideas
+- [`selected-opportunity.md`](docs/selected-opportunity.md), [`problem notes.md`](docs/problem%20notes.md) — why Peer Tutoring was selected
+- [`customer-questions.md`](docs/customer-questions.md) — discovery interview/survey questions
+- [`customer-discovery-summary.md`](docs/customer-discovery-summary.md) — findings from 8 interviews + 14 survey responses
+- [`assumptions-evidence-table.md`](docs/assumptions-evidence-table.md) — assumptions vs. validated evidence
 
-### Team Contribution
+**Persona, requirements & MVP scope (Lab 04)**
+- [`user-persona.md`](docs/user-persona.md) — representative student persona ("Shwe Yi")
+- [`user-stories.md`](docs/user-stories.md) — 16 user stories with acceptance criteria + traceability matrix
+- [`mvp-feature-list.md`](docs/mvp-feature-list.md) — MoSCoW-prioritized feature list
+- [`system-requirements.md`](docs/system-requirements.md) — FR-01–FR-16 functional requirements
 
-All team members contributed to the same GitHub repository. The team worked together on defining the product concept, mapping system requirements to prototype screens, creating wireframes, designing the user flow, reviewing UI/UX decisions, and updating project documentation.
+**Product concept & wireframes (Lab 05)**
+- [`product-concept.md`](docs/product-concept.md) — target users, problem, MVP/out-of-scope
+- [`feature-requirement-mapping.md`](docs/feature-requirement-mapping.md) — feature ↔ requirement ↔ wireframe traceability
+- [`wireframe-specification.md`](docs/wireframe-specification.md) — per-screen wireframe spec
+- [`wireframe-usability-review-checklist.md`](docs/wireframe-usability-review-checklist.md)
 
+**Business model, architecture & data (Lab 06)**
+- [`business-model-canvas.md`](docs/business-model-canvas.md)
+- [`technical-architecture.md`](docs/technical-architecture.md) — selected platform: frontend + localStorage/JSON
+- [`data-structure.md`](docs/data-structure.md) — Tutor / Booking / Student entities and fields
+- [`feature-value-mapping.md`](docs/feature-value-mapping.md) — user value vs. business/operational value per feature
+- [`case-study-brief.md`](docs/case-study-brief.md) — one-page project brief
+
+**MVP experiment (Lab 07)**
+- [`mvp-experiment-plan.md`](docs/mvp-experiment-plan.md) — experiment objective, scope, test users
+- [`critical-assumptions.md`](docs/critical-assumptions.md) — riskiest assumptions and how to test them
+- [`experiment-script.md`](docs/experiment-script.md) — moderated usability test tasks
+- [`feedback-form.md`](docs/feedback-form.md) — post-test rating/feedback questions
+- [`success-metrics.md`](docs/success-metrics.md) — target metrics and go/revise/rethink decision rules
+
+**Team & progress**
+- [`team-profile.md`](docs/team-profile.md) — member roles and skills
+- [`weekly-logbook.md`](docs/weekly-logbook.md) — full lab-by-lab logbook (Lab 01–07)
+
+## Data (`/data`)
+- `raw_responses.xlsx`, `nuf_evaluation .xlsx` — raw customer discovery survey data and NUF opportunity scoring (Lab 02–03)
+- `sample-test-users.csv` — sample Lab 07 usability test participants
+- `sample-experiment-results.csv` — sample task-level usability test results
+- `sample-feedback-form-results.csv` — sample post-test feedback ratings
+- `experiment-results-template.csv`, `feedback-form-template.csv` — blank templates for running further tests
 
 ## Decision for Next Step
-The team will **continue with the peer tutoring booking platform**, narrowing the focus to exam-period demand. We will prioritize features that improve tutor visibility and quick discovery, while exploring lightweight trust mechanisms (ratings or feedback) to address quality concerns.
-
+Based on Lab 07 experiment findings, the team will revise booking status labels and the time-slot field for clarity, then proceed into building the final frontend prototype (HTML/CSS/JS + JSON/localStorage) covering the four Must-Have MVP features.
