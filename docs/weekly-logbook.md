@@ -292,3 +292,42 @@ Peer Tutoring Booking Platform
 
 ### Lecturer / TA Notes
 (For lecturer/TA use.)
+
+---
+
+## Lab 08: Customer Validation and Analytics Sheet
+
+### Group Information
+- Group name: team2
+- Project title: Peer Tutoring Booking Platform
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Lab date: 2026-07-16
+
+### Work Completed Today
+- [x] Reviewed Lab 07 MVP experiment plan
+- [x] Prepared validation dataset structure
+- [x] Created or updated analytics sheet
+- [x] Wrote customer validation summary
+- [x] Wrote analytics insights
+- [x] Wrote MVP decision
+- [x] Updated README
+- [x] Created GitHub issues for prototype improvements
+
+### Member Contributions
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Min Htet Naing | Reviewed Lab 07 experiment plan and consolidated validation dataset structure; wrote the weekly logbook | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/data/validation-results.csv |
+| Min Myat Maung | Calculated analytics metrics and wrote analytics insights | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/analytics-insights.md |
+| Eaint Shwe Sin | Wrote the customer validation summary and test user notes | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/customer-validation-summary.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/test-user-notes.md |
+| Shwe Yi Htet | Wrote the MVP decision, updated the README, and created GitHub issues for prototype improvements | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/mvp-decision.md |
+
+### Problems Found
+- The Lab 07 raw data was recorded per-task rather than per-tester, so the team had to consolidate multiple task rows per tester into a single validation row (one per Test User ID) to match the Lab 08 format.
+- Booking status label confusion (Pending/Approved) reappeared as an issue in this round of testing, confirming it as a recurring, not one-off, usability problem.
+
+### Next Actions
+- Add a booking status legend/tooltip to the dashboard (FR-08).
+- Replace the free-text time-slot field with a structured time-slot picker (FR-03).
+- Add placeholder/example text to the booking notes field (FR-03).
+- Increase the visual prominence of the tutor search bar (FR-06).
+- Begin building the final prototype incorporating these fixes.
