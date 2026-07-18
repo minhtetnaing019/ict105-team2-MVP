@@ -1,8 +1,6 @@
-
 TestID,TestDate,TestUserID,UserRole,DeviceType,PrototypeVersion,TaskName,TaskCompleted,CompletionTimeSeconds,EaseOfUseScore,UsefulnessScore,ConfusionPoint,MostUsefulFeature,WouldUseAgain,InterestLevel,RequirementID,MVPDecisionSignal,Notes
 T001,2026-07-14,TU-01,Student (Tutee),Mobile,v0.1,Submit booking request,Yes,90,4,4,Unsure which time slot format to pick,Tutor search by subject,Yes,5,FR-03,Partial,Confirmation message appeared clearly; would use the platform.
 T002,2026-07-14,TU-02,Student (Tutor-side),PC,v0.1,Submit booking request,Yes,85,4,4,None,Tutor profile with availability,Yes,4,FR-03,Validated,Form fields were straightforward.
 T003,2026-07-14,TU-03,Student (Int'l/Year 1),Mobile,v0.1,Submit booking request,Yes,120,3,3,Search bar easy to miss; unclear what to write in notes field,Tutor profile detail view,Yes,4,FR-03,Partial,Add placeholder text/example to notes field; make search bar more visible.
 T004,2026-07-14,TU-04,Student (Year 4),PC,v0.1,Check booking status,No,80,2,2,Booking status labels (Pending/Approved) were unclear,Homepage clarity,Maybe,3,FR-08,Revise,Needs a tooltip or legend explaining each status.
 T005,2026-07-14,TU-05,Student (Tutee),Mobile,v0.1,Submit booking request,Yes,75,5,5,None,Booking confirmation message,Yes,5,FR-03,Validated,Confirmation message was reassuring; keep the flow as simple as it is.
-```
