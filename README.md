@@ -89,3 +89,35 @@ Full spec: [`docs/wireframe-specification.md`](docs/wireframe-specification.md).
 
 ## Decision for Next Step
 Based on Lab 07 experiment findings, the team will revise booking status labels and the time-slot field for clarity, then proceed into building the final frontend prototype (HTML/CSS/JS + JSON/localStorage) covering the four Must-Have MVP features.
+
+## Lab 09 - Responsible IT Check
+
+### Responsible Design Summary
+The Lab 09 review identified two High-risk items that must be fixed before further demos: the admin dashboard is not separated from normal student navigation, allowing any user to reach booking-status controls (security), and the booking notes field is free text with no guidance against sharing sensitive details (privacy). Ethical review found the homepage previously implied guaranteed tutor quality; this wording has been corrected. An IP review found one wireframe icon with an untracked license source, to be replaced before final build. Full findings are in `docs/risk-register.md`.
+
+### Files Added
+- [`docs/legal-ethical-checklist.md`](docs/legal-ethical-checklist.md)
+- [`docs/privacy-and-data-protection.md`](docs/privacy-and-data-protection.md)
+- [`docs/ip-and-third-party-assets.md`](docs/ip-and-third-party-assets.md)
+- [`docs/security-risk-check.md`](docs/security-risk-check.md)
+- [`docs/risk-register.md`](docs/risk-register.md)
+- [`docs/updated-requirements-note.md`](docs/updated-requirements-note.md)
+- [`docs/data-handling-policy.md`](docs/data-handling-policy.md)
+- [`docs/user-consent-statement.md`](docs/user-consent-statement.md)
+- [`docs/weekly-logbook.md`](docs/weekly-logbook.md) (Lab 09 entry added)
+- [`data/data-inventory.csv`](data/data-inventory.csv)
+- [`data/risk-register.csv`](data/risk-register.csv)
+- [`data/ip-asset-register.csv`](data/ip-asset-register.csv)
+- [`data/security-review-checklist.csv`](data/security-review-checklist.csv)
+- [`diagrams/responsible-it-review-flow.mmd`](diagrams/responsible-it-review-flow.mmd)
+
+### Requirement Update
+`system-requirements.md` has not yet been edited directly. Two updates were proposed and approved by the team in [`docs/updated-requirements-note.md`](docs/updated-requirements-note.md): FR-09 (separate admin route) and FR-03 (notes field guidance text). These will be merged into `system-requirements.md` in the next revision.
+
+### Team Contributions
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Min Htet Naing | Coordinated the Lab 09 review, wrote the legal/ethical checklist, and updated the weekly logbook | `docs/legal-ethical-checklist.md` |
+| Min Myat Maung | Completed the basic security risk check and identified the admin access separation issue | `docs/security-risk-check.md` |
+| Eaint Shwe Sin | Completed the privacy and data protection review and the data handling policy | `docs/privacy-and-data-protection.md`, `docs/data-handling-policy.md` |
+| Shwe Yi Htet | Completed the IP and third-party assets register, risk register, and requirements update note | `docs/ip-and-third-party-assets.md`, `docs/risk-register.md` |
