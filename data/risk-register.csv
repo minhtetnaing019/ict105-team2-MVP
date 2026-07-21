@@ -1,0 +1,7 @@
+Risk_ID,Category,Risk_Description,Affected_Feature_or_Requirement,Severity,Likelihood,Mitigation_Action,Owner,GitHub_Evidence,Status
+R-01,Privacy,Booking notes are free text and could unintentionally contain sensitive personal details,FR-03 Booking Form Submission,Medium,Medium,Add placeholder/help text warning students not to share sensitive details,Eaint Shwe Sin,Issue #16,Open
+R-02,Security,Admin dashboard is reachable from normal navigation with no access separation,FR-09 Admin Booking and Tutor Management,High,Medium,Separate admin dashboard into its own labelled non-public route before demo,Min Myat Maung,Issue #16,Open
+R-03,IP,One early wireframe icon was sourced from an image search with no recorded license,UI consistency,Medium,Medium,Replace with a Font Awesome or other open-license icon and record the source,Min Myat Maung,Issue #11,In Progress
+R-04,Ethical,Early homepage draft copy implied tutor quality was verified,FR-01 Homepage,Medium,Low,Reword homepage copy to describe booking/discovery only,Min Htet Naing,Issue #15,Closed
+R-05,Legal,NUF evaluation template is course-provided material and must be credited if shared publicly,data/nuf_evaluation.xlsx,Low,Low,Add course material credit line to README,Shwe Yi Htet,Issue #17,Open
+R-06,Data quality,Booking status label confusion (Pending vs Approved) reported by test users,FR-08 Booking Status Tracking,Medium,Medium,Add a status legend/tooltip to the dashboard,Eaint Shwe Sin,docs/mvp-decision.md,Open
