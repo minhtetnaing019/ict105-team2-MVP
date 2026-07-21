@@ -331,3 +331,45 @@ Peer Tutoring Booking Platform
 - Add placeholder/example text to the booking notes field (FR-03).
 - Increase the visual prominence of the tutor search bar (FR-06).
 - Begin building the final prototype incorporating these fixes.
+
+---
+
+## Lab 09: Responsible IT Check
+
+### Group Information
+- Group name: team2
+- Project title: Peer Tutoring Booking Platform
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Lab date: 2026-07-21
+
+### Work Completed Today
+- Data inventory: Documented all data fields collected by the prototype in `data/data-inventory.csv`, based on the booking and tutor entities from Lab 06.
+- Privacy review: Reviewed each data field for personal/sensitive data and minimization decisions in `docs/privacy-and-data-protection.md`.
+- Ethical review: Completed the ethical checklist in `docs/legal-ethical-checklist.md`; flagged unseparated admin access as needing revision.
+- IP review: Reviewed all external assets (icons, fonts, frameworks) in `docs/ip-and-third-party-assets.md`; found one untracked icon source.
+- Security review: Completed the basic security risk check in `docs/security-risk-check.md`; found two High-risk items related to admin access control.
+- Risk register: Consolidated all six risk categories into `docs/risk-register.md`.
+- Requirements update note: Logged two proposed requirement updates (FR-09, FR-03) in `docs/updated-requirements-note.md`.
+
+### Member Contributions
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Min Htet Naing | Coordinated the Lab 09 review, wrote the legal/ethical checklist, and updated the weekly logbook | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/legal-ethical-checklist.md |
+| Min Myat Maung | Completed the basic security risk check and identified the admin access separation issue | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/security-risk-check.md |
+| Eaint Shwe Sin | Completed the privacy and data protection review and the data handling policy | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/privacy-and-data-protection.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/data-handling-policy.md |
+| Shwe Yi Htet | Completed the IP and third-party assets register, risk register, and requirements update note | https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/ip-and-third-party-assets.md, https://github.com/minhtetnaing019/ict105-team2-MVP/blob/main/docs/risk-register.md |
+
+### Decisions Made
+1. The admin dashboard must be separated from normal student navigation before the prototype is demoed further (R-02, High risk).
+2. The booking notes field will include placeholder text warning students not to share sensitive information (R-01).
+3. system-requirements.md will be updated to reflect both fixes above (see `updated-requirements-note.md`); no other requirements changed.
+4. One wireframe icon with an untracked source will be replaced with a licensed alternative (R-03).
+
+### Issues / Blockers
+- Admin dashboard currently has no access separation from student views, which is the most urgent item to fix before the next demo.
+- The exact wording for the booking notes placeholder text still needs UI review before implementation.
+
+### Next Action Before Lab 10
+- Implement the admin route separation and notes-field placeholder text identified in this review.
+- Carry forward the two approved requirement updates into the next revision of `system-requirements.md`.
+- Replace the untracked wireframe icon with a licensed alternative.
