@@ -1,0 +1,9 @@
+Data Field,Example Value,Purpose,Personal Data,Sensitive Data,Visibility,Decision
+Student Name,Eaint Shwe Sin,Booking owner,Yes,No,Student/Admin,Keep
+Tutor Name,Min Htet Naing,Display tutor profile,Yes,No,Public,Keep
+Subject,Calculus,Booking subject,No,No,Public,Keep
+Time Slot,Monday 2:00 PM - 3:00 PM,Booking schedule,No,No,Student/Admin,Keep
+Booking Notes,Need help with Calculus Chapter 3,Optional description,Possibly,No,Student/Admin,Keep
+Booking Status,Pending,Track booking,No,No,Student/Admin,Keep
+Email,,Not collected,Yes,No,None,Remove
+Phone Number,,Not collected,Yes,No,None,Remove
