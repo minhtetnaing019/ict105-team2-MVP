@@ -1,0 +1,7 @@
+Asset_Name,Type,Source_URL,License_or_Permission,Used_In,Credit_Required,Risk_Level,Action
+Font Awesome icons,Icon library,https://fontawesome.com,Free tier - check license,Navigation and booking status icons,Yes,Low,Record source in README credits section
+Google Fonts (Inter),Web font,https://fonts.google.com,Open Font License,Body and heading text,No,Low,Keep as-is
+Bootstrap CSS framework,CSS framework,https://getbootstrap.com,MIT License,Responsive layout grid,Yes,Low,Record dependency in README
+Sample tutor profile photos,Image,Team-created placeholder avatars,Team-created,Tutor profile cards,No,Low,Continue using team-made placeholders
+NUF evaluation spreadsheet template,Spreadsheet template,ICT105 Lab 02 course material,Course material for coursework use,data/nuf_evaluation.xlsx,Yes,Low,Credit ICT105 course materials in README
+Unknown stock icon,Icon,Google Image Search - source not recorded,Unknown,Early wireframe draft only,Yes/unknown,High,Replace with open-license icon before final build
