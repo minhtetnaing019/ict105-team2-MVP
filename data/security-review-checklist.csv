@@ -1,0 +1,8 @@
+Area,Check_Question,Yes_No_Partial,Risk_Level,Mitigation_Action
+Input form,Are required fields validated?,Partial,Medium,Add required-field and format validation to name/subject/time-slot fields
+Input form,Are sensitive fields avoided?,Yes,Low,Continue avoiding email/phone/payment fields
+Admin function,Are admin actions separated from user actions?,No,High,Move admin dashboard behind a separate labelled non-public route
+Data display,Is private information hidden from public screens?,Yes,Low,Continue current design; re-check when new fields are added
+Status update,Can only admin/manager update status?,No,High,Restrict status-change controls to the admin view only
+Public links,Do public links expose hidden data?,Yes,Low,No public/shareable booking links exist; continue this design
+Prototype data,Does the prototype use sample or masked data?,Yes,Low,All demo names, IDs, and records remain fictional
