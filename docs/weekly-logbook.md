@@ -373,3 +373,45 @@ Peer Tutoring Booking Platform
 - Implement the admin route separation and notes-field placeholder text identified in this review.
 - Carry forward the two approved requirement updates into the next revision of `system-requirements.md`.
 - Replace the untracked wireframe icon with a licensed alternative.
+
+---
+
+## Lab 10: MVP Implementation Sprint 1
+
+### Lab Topic
+MVP Implementation Sprint 1
+
+### What We Built Today
+- Reviewed the existing `prototype/Prototype.html` single-file prototype (Home, Find Tutors, Tutor Profile, Book a Session, Dashboard, Admin) against `docs/system-requirements.md`.
+- Documented the current Sprint 1 scope and member responsibilities in `docs/implementation-plan.md`.
+- Traced each functional requirement to its prototype screen and current status in `docs/feature-implementation-status.md`.
+
+### Requirement IDs Addressed
+- FR-01: Homepage screen reviewed against `docs/product-concept.md`.
+- FR-06: Tutor search/filter reviewed on the Find Tutors screen.
+- FR-09: Admin function flagged as needing route separation from student navigation (carried over from Lab 09, R-02).
+
+### Contribution by Members
+
+| Member | Contribution | Evidence |
+|---|---|---|
+| Min Htet Naing | Coordinated the Sprint 1 review and consolidated the implementation plan | `docs/implementation-plan.md` |
+| Min Myat Maung | Reviewed screen layouts and styling against the wireframes | `docs/feature-implementation-status.md` |
+| Eaint Shwe Sin | Reviewed navigation, search/filter, and form validation status | `docs/feature-implementation-status.md` |
+| Shwe Yi Htet | Reviewed sample data structure and localStorage plan | `docs/data-structure.md` |
+
+### Screenshots Added
+- /screenshots/homepage.png
+- /screenshots/input-form.png
+- /screenshots/record-list.png
+- /screenshots/detail-view.png
+- /screenshots/admin-view.png
+
+### Problems Faced
+- The booking form and admin actions in the current prototype are still static mockup states and are not yet wired to real data logic.
+- The admin dashboard still needs to be separated from student navigation before the next demo.
+
+### Plan for Next Lab
+- Wire the booking form to real localStorage read/write logic (FR-03, FR-04).
+- Implement admin route separation (FR-09) and the booking notes placeholder text (FR-15).
+- Add responsive layout rules for mobile widths (FR-14).
