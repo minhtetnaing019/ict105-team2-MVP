@@ -7,10 +7,7 @@
 Our team selected a peer tutoring booking platform. Target users are university students who need academic help in specific subjects and currently rely on word-of-mouth or informal chat group posts to find a tutor, with no structured way to check availability or book a session. We selected this idea because it is useful, feasible, and can be prototyped as a web-based tutor listing and booking system without hardware devices.
 
 ## Problem Statement
-Students frequently struggle to find reliable peer tutors during exam periods. Current informal methods (chat groups, asking friends) are slow and unreliable, leading to stress and poor exam preparation. While willing tutors exist, the lack of visibility and structured discovery prevents effective matching. The problem occurs 2–3 times per semester, concentrated around exam periods, with respondents rating severity 4/5 on average.
-
-## Current Status
-The team has completed customer discovery (Lab 03), defined a user persona and MVP feature scope (Lab 04), produced wireframes and a product concept (Lab 05), defined the business model / technical architecture / data structure (Lab 06), and designed and ran an MVP usability experiment (Lab 07). Next: revise the prototype based on experiment findings and move into implementation.
+Students frequently struggle to find reliable peer tutors during exam periods. Current informal methods (chat groups, asking friends) are slow and unreliable, leading to stress and poor exam preparation. While willing tutors exist, the lack of visibility and structured discovery prevents effective matching.
 
 ## MVP Feature Scope
 Four Must-Have features, all directly traceable to Lab 03 discovery evidence (see [`docs/mvp-feature-list.md`](docs/mvp-feature-list.md)):
@@ -21,6 +18,9 @@ Four Must-Have features, all directly traceable to Lab 03 discovery evidence (se
 | F02: Tutor Availability Display | No structured way to check tutor availability |
 | F03: Session Booking Request | Students settle for tutors they aren't confident in due to slow, informal arrangement |
 | F04: Tutor Profile Listing | Tutors are willing to tutor but lack visibility |
+
+## Prototype
+The working prototype is a self-contained HTML/CSS/JS file: [`prototype/Prototype.html`](prototype/Prototype.html). See [`prototype/mvp-demo-link.md`](prototype/mvp-demo-link.md) for how to open it and a suggested testing walkthrough. It uses browser localStorage / sample data and does not require a backend.
 
 ## Prototype Screens (Wireframes)
 
@@ -39,85 +39,73 @@ Full spec: [`docs/wireframe-specification.md`](docs/wireframe-specification.md).
 - Use case diagram: [`diagrams/use case diagram.png`](diagrams/use%20case%20diagram.png)
 - User flow diagram: [`diagrams/user-flow.png`](diagrams/user-flow.png) / [`diagrams/user flow diagram.png`](diagrams/user%20flow%20diagram.png)
 - System architecture diagram: [`diagrams/system architecture diagram.png`](diagrams/system%20architecture%20diagram.png)
+- Responsible IT review flow: [`diagrams/responsible-it-review-flow.mmd`](diagrams/responsible-it-review-flow.mmd)
 
 ## Documentation Index (`/docs`)
 
-**Opportunity & discovery (Labs 01–03)**
+**Opportunity & discovery**
 - [`idea-log.md`](docs/idea-log.md) — initial brainstormed venture ideas
 - [`opportunity-scan.md`](docs/opportunity-scan.md) — NUF-scored comparison of ideas
 - [`selected-opportunity.md`](docs/selected-opportunity.md), [`problem notes.md`](docs/problem%20notes.md) — why Peer Tutoring was selected
 - [`customer-questions.md`](docs/customer-questions.md) — discovery interview/survey questions
-- [`customer-discovery-summary.md`](docs/customer-discovery-summary.md) — findings from 8 interviews + 14 survey responses
+- [`customer-discovery-summary.md`](docs/customer-discovery-summary.md) — findings from customer discovery
 - [`assumptions-evidence-table.md`](docs/assumptions-evidence-table.md) — assumptions vs. validated evidence
 
-**Persona, requirements & MVP scope (Lab 04)**
-- [`user-persona.md`](docs/user-persona.md) — representative student persona ("Shwe Yi")
-- [`user-stories.md`](docs/user-stories.md) — 16 user stories with acceptance criteria + traceability matrix
+**Persona, requirements & MVP scope**
+- [`user-persona.md`](docs/user-persona.md) — representative student persona
+- [`user-stories.md`](docs/user-stories.md) — user stories with acceptance criteria + traceability matrix
 - [`mvp-feature-list.md`](docs/mvp-feature-list.md) — MoSCoW-prioritized feature list
 - [`system-requirements.md`](docs/system-requirements.md) — FR-01–FR-16 functional requirements
 
-**Product concept & wireframes (Lab 05)**
+**Product concept & wireframes**
 - [`product-concept.md`](docs/product-concept.md) — target users, problem, MVP/out-of-scope
 - [`feature-requirement-mapping.md`](docs/feature-requirement-mapping.md) — feature ↔ requirement ↔ wireframe traceability
 - [`wireframe-specification.md`](docs/wireframe-specification.md) — per-screen wireframe spec
 - [`wireframe-usability-review-checklist.md`](docs/wireframe-usability-review-checklist.md)
 
-**Business model, architecture & data (Lab 06)**
+**Business model, architecture & data**
 - [`business-model-canvas.md`](docs/business-model-canvas.md)
 - [`technical-architecture.md`](docs/technical-architecture.md) — selected platform: frontend + localStorage/JSON
 - [`data-structure.md`](docs/data-structure.md) — Tutor / Booking / Student entities and fields
 - [`feature-value-mapping.md`](docs/feature-value-mapping.md) — user value vs. business/operational value per feature
 - [`case-study-brief.md`](docs/case-study-brief.md) — one-page project brief
 
-**MVP experiment (Lab 07)**
+**MVP experiment & validation**
 - [`mvp-experiment-plan.md`](docs/mvp-experiment-plan.md) — experiment objective, scope, test users
 - [`critical-assumptions.md`](docs/critical-assumptions.md) — riskiest assumptions and how to test them
 - [`experiment-script.md`](docs/experiment-script.md) — moderated usability test tasks
 - [`feedback-form.md`](docs/feedback-form.md) — post-test rating/feedback questions
 - [`success-metrics.md`](docs/success-metrics.md) — target metrics and go/revise/rethink decision rules
+- [`customer-validation-summary.md`](docs/customer-validation-summary.md), [`analytics-insights.md`](docs/analytics-insights.md) — validation results and insights
+
+**Responsible IT (legal, ethical, privacy, security)**
+- [`legal-ethical-checklist.md`](docs/legal-ethical-checklist.md)
+- [`privacy-and-data-protection.md`](docs/privacy-and-data-protection.md)
+- [`ip-and-third-party-assets.md`](docs/ip-and-third-party-assets.md)
+- [`security-risk-check.md`](docs/security-risk-check.md)
+- [`risk-register.md`](docs/risk-register.md)
+- [`data-handling-policy.md`](docs/data-handling-policy.md)
+- [`user-consent-statement.md`](docs/user-consent-statement.md)
+- [`updated-requirement-note.md`](docs/updated-requirement-note.md) — proposed requirement updates pending merge into `system-requirements.md`
+
+**Implementation**
+- [`implementation-plan.md`](docs/implementation-plan.md) — sprint scope, approach, and member responsibilities for the working prototype
+- [`feature-implementation-status.md`](docs/feature-implementation-status.md) — per-requirement implementation status, evidence, and outstanding fixes
 
 **Team & progress**
 - [`team-profile.md`](docs/team-profile.md) — member roles and skills
-- [`weekly-logbook.md`](docs/weekly-logbook.md) — full lab-by-lab logbook (Lab 01–07)
+- [`weekly-logbook.md`](docs/weekly-logbook.md) — full lab-by-lab logbook
 
 ## Data (`/data`)
-- `raw_responses.xlsx`, `nuf_evaluation .xlsx` — raw customer discovery survey data and NUF opportunity scoring (Lab 02–03)
-- `sample-test-users.csv` — sample Lab 07 usability test participants
-- `sample-experiment-results.csv` — sample task-level usability test results
-- `sample-feedback-form-results.csv` — sample post-test feedback ratings
-- `experiment-results-template.csv`, `feedback-form-template.csv` — blank templates for running further tests
+See [`data/README.md`](data/README.md) for the full index. Highlights:
+- `tutor-booking-sample-records.csv`, `booking-status-categories.csv` — sample Tutor/Booking records and status values matching `docs/data-structure.md`
+- `raw_responses.xlsx`, `nuf_evaluation.xlsx` — raw customer discovery survey data and NUF opportunity scoring
+- `test-users.csv` — sample usability test participants
+- `experiment-results.csv`, `feedback-form-results.csv`, `validation-results.csv` — usability test and validation results
+- `data-inventory.csv`, `risk-register.csv`, `ip-asset-register.csv`, `security-review-checklist.csv` — Responsible IT review data (see corresponding docs above)
 
-## Decision for Next Step
-Based on Lab 07 experiment findings, the team will revise booking status labels and the time-slot field for clarity, then proceed into building the final frontend prototype (HTML/CSS/JS + JSON/localStorage) covering the four Must-Have MVP features.
-
-## Lab 09 - Responsible IT Check
-
-### Responsible Design Summary
-The Lab 09 review identified two High-risk items that must be fixed before further demos: the admin dashboard is not separated from normal student navigation, allowing any user to reach booking-status controls (security), and the booking notes field is free text with no guidance against sharing sensitive details (privacy). Ethical review found the homepage previously implied guaranteed tutor quality; this wording has been corrected. An IP review found one wireframe icon with an untracked license source, to be replaced before final build. Full findings are in `docs/risk-register.md`.
-
-### Files Added
-- [`docs/legal-ethical-checklist.md`](docs/legal-ethical-checklist.md)
-- [`docs/privacy-and-data-protection.md`](docs/privacy-and-data-protection.md)
-- [`docs/ip-and-third-party-assets.md`](docs/ip-and-third-party-assets.md)
-- [`docs/security-risk-check.md`](docs/security-risk-check.md)
-- [`docs/risk-register.md`](docs/risk-register.md)
-- [`docs/updated-requirements-note.md`](docs/updated-requirements-note.md)
-- [`docs/data-handling-policy.md`](docs/data-handling-policy.md)
-- [`docs/user-consent-statement.md`](docs/user-consent-statement.md)
-- [`docs/weekly-logbook.md`](docs/weekly-logbook.md) (Lab 09 entry added)
-- [`data/data-inventory.csv`](data/data-inventory.csv)
-- [`data/risk-register.csv`](data/risk-register.csv)
-- [`data/ip-asset-register.csv`](data/ip-asset-register.csv)
-- [`data/security-review-checklist.csv`](data/security-review-checklist.csv)
-- [`diagrams/responsible-it-review-flow.mmd`](diagrams/responsible-it-review-flow.mmd)
-
-### Requirement Update
-`system-requirements.md` has not yet been edited directly. Two updates were proposed and approved by the team in [`docs/updated-requirements-note.md`](docs/updated-requirements-note.md): FR-09 (separate admin route) and FR-03 (notes field guidance text). These will be merged into `system-requirements.md` in the next revision.
-
-### Team Contributions
-| Member Name | Contribution | GitHub Evidence |
-|---|---|---|
-| Min Htet Naing | Coordinated the Lab 09 review, wrote the legal/ethical checklist, and updated the weekly logbook | `docs/legal-ethical-checklist.md` |
-| Min Myat Maung | Completed the basic security risk check and identified the admin access separation issue | `docs/security-risk-check.md` |
-| Eaint Shwe Sin | Completed the privacy and data protection review and the data handling policy | `docs/privacy-and-data-protection.md`, `docs/data-handling-policy.md` |
-| Shwe Yi Htet | Completed the IP and third-party assets register, risk register, and requirements update note | `docs/ip-and-third-party-assets.md`, `docs/risk-register.md` |
+## Repository Conventions
+- Each lab's deliverables live primarily under `/docs`, with supporting data in `/data`, diagrams in `/diagrams`, wireframes in `/wireframes`, screenshots in `/screenshots`, and the working prototype in `/prototype`.
+- New requirements or scope changes are proposed in a dated note under `/docs` before being merged into `system-requirements.md`, so the requirements doc stays the single source of truth.
+- Every feature in the prototype should trace back to a functional requirement (`system-requirements.md`) and a user story (`user-stories.md`); see `feature-implementation-status.md` for the current mapping.
+- Lab-by-lab work and member contributions are logged in `docs/weekly-logbook.md` rather than in this README, so this file can stay a stable overview across labs.
