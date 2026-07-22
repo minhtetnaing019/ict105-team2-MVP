@@ -1,0 +1,5 @@
+status,meaning,updated_by
+Pending,Booking request has been submitted and is waiting for confirmation.,Admin
+Approved,Booking request has been accepted.,Admin
+Completed,Tutoring session has been completed successfully.,Admin
+Closed,Booking has been cancelled or expired.,Admin
