@@ -415,3 +415,57 @@ MVP Implementation Sprint 1
 - Wire the booking form to real localStorage read/write logic (FR-03, FR-04).
 - Implement admin route separation (FR-09) and the booking notes placeholder text (FR-15).
 - Add responsive layout rules for mobile widths (FR-14).
+
+---
+
+## Lab 11: MVP Implementation Sprint 2 and Startup Metrics
+
+### Group Information
+- Group name: team2
+- Project title: Peer Tutoring Booking Platform
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Lab date: 2026-07-23
+
+### What We Built Today
+- Reviewed Sprint 1 (`prototype/Prototype.html`) against `docs/system-requirements.md` and `docs/mvp-feature-list.md`; identified five outstanding issues (static booking form, static dashboard/status data, missing form validation, unpersisted admin actions, no mobile layout).
+- Wired the booking form to read and write real records via browser localStorage (FR-03, FR-04), replacing the static mockup state.
+- Connected the Dashboard list, status labels, and summary stats to live localStorage data instead of static sample content (FR-05, FR-08, FR-12).
+- Added inline field validation and a submission-triggered confirmation message to the booking form (FR-10, FR-11).
+- Added the privacy placeholder text to the booking notes field carried over from Lab 09 (FR-15).
+- Defined nine startup/product metrics (usage, status, category, user activity, validation, operational) in `docs/startup-metrics.md`, backed by `data/product-metrics-summary.csv`.
+- Ran a 10-case end-to-end test pass of the full user journey and logged results in `docs/prototype-testing-notes.md`.
+- Updated `docs/feature-implementation-status.md` with Sprint 2 statuses for all 16 requirements.
+
+### Requirement IDs Addressed
+- FR-03, FR-04: Booking form submission and localStorage persistence — now Completed.
+- FR-05, FR-08, FR-12: Dashboard list, status tracking, and summary stats now driven by live data — now Completed.
+- FR-10, FR-11: Form validation and confirmation messaging — now Completed.
+- FR-15: Privacy placeholder text on the notes field — now Completed.
+- FR-09: Admin route separation done; tutor-approval persistence still open — Partially Completed.
+- FR-14: Responsive nav/cards done; booking form and admin tables still need mobile rules — Partially Completed.
+
+### Member Contributions
+
+| Member | Contribution | Evidence |
+|---|---|---|
+| Min Htet Naing | Coordinated the Sprint 2 review, reviewed Sprint 1 issues, wrote the weekly logbook and README updates | `docs/feature-implementation-status.md`, `README.md` |
+| Min Myat Maung | Reviewed screen layouts, added partial responsive rules, tested and logged the admin/mobile defects | `docs/prototype-testing-notes.md` (TC-07, TC-08, TC-09) |
+| Eaint Shwe Sin | Implemented booking form validation, confirmation messaging, and the privacy placeholder text | `prototype/Prototype.html` (Book a Session logic) |
+| Shwe Yi Htet | Implemented localStorage read/write for bookings and defined the startup metrics and metrics summary data | `docs/startup-metrics.md`, `data/product-metrics-summary.csv` |
+
+### Startup/Product Metrics Added
+Nine metrics defined across usage, status, category, user activity, validation, and operational types (see `docs/startup-metrics.md`): total bookings, pending/approved/completed/closed bookings, most requested subject, active tutors, booking success rate, and average time from booking to session.
+
+### Problems Found
+- Admin status updates do not yet refresh the student Dashboard without a manual page reload (TC-07).
+- Tutor Approval actions in the Admin screen update the UI but do not persist to localStorage (TC-08).
+- Booking form and admin tables overflow at mobile widths (375px); only the nav bar and card layouts are responsive so far (TC-09).
+
+### Next Actions Before Lab 12
+- Make Admin booking status updates refresh the Dashboard live.
+- Persist Tutor Approval actions to localStorage.
+- Finish responsive layout rules for the booking form and admin tables.
+- Capture updated screenshots reflecting the Sprint 2 UI once the remaining fixes above are complete.
+
+### Lecturer / TA Notes
+(For lecturer/TA use.)
