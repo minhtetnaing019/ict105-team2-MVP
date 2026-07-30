@@ -1,0 +1,17 @@
+requirement_id,feature_or_screen,user_story_id,evidence_source,final_status,screenshot_file,notes
+FR-01,Homepage,US-01,Lab03 discovery,Completed,final-homepage.png,
+FR-02,Find Tutors to Book a Session pathway,US-02,Lab05 wireframes,Completed,final-user-flow.png,
+FR-03,Book a Session form,US-03,Lab11 implementation,Completed,final-input-form.png,
+FR-04,localStorage booking persistence,US-04,Lab11 implementation,Completed,,No screenshot - data layer
+FR-05,Dashboard booking list,US-05,Lab11 implementation,Completed,final-dashboard.png,
+FR-06,Search/filter tutors,US-06,Lab08 validation,Completed,final-record-list.png,
+FR-07,Tutor Profile detail view,US-07,Lab05 wireframes,Completed,final-detail-view.png,
+FR-08,Booking status tracking,US-08,Lab13 user testing,Partial,final-dashboard.png,Status legend added; refresh fix applied
+FR-09,Admin tutor/booking management,US-09,Lab09 security check,Partial,final-admin-view.png,Persistence fix applied, needs re-test
+FR-10,Form validation,US-10,Lab11 implementation,Completed,final-input-form.png,
+FR-11,Confirmation messaging,US-11,Lab11 implementation,Completed,final-input-form.png,
+FR-12,Dashboard summary stats,US-12,Lab11 implementation,Completed,final-dashboard.png,
+FR-13,Consistent navigation,US-13,Lab10 review,Completed,final-homepage.png,
+FR-14,Mobile responsiveness,US-14,Lab11/13 testing,Partial,final-mobile-view.png,Booking form and admin tables improved
+FR-15,Data privacy,US-15,Lab09 review,Completed,final-detail-view.png,
+FR-16,Requirement traceability,US-16,This document,Completed,,
