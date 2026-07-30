@@ -1,0 +1,6 @@
+Issue_ID,Issue_Description,Severity,Related_Requirement,Evidence_Source,Proposed_Fix,Owner,Status
+IMP-01,Admin booking status updates do not refresh the student Dashboard,Critical,FR-08,Lab 11 testing (TC-07),Trigger a live Dashboard refresh after status updates,Min Myat Maung,Pending
+IMP-02,Tutor Approval actions do not persist to localStorage,Critical,FR-09,Lab 11 testing (TC-08),Connect Tutor Approval actions to localStorage,Min Myat Maung,Pending
+IMP-03,Booking form and admin tables overflow on mobile widths,Important,FR-14,Lab 11 testing (TC-09),Add responsive CSS rules for forms and tables,Eaint Shwe Sin,Pending
+IMP-04,Booking status labels confuse first-time testers,Important,FR-08,Lab 13 tester T03,Add a status legend/tooltip on Dashboard and Admin,Eaint Shwe Sin,Pending
+IMP-05,Time field validation message easy to miss,Useful,FR-10,Lab 13 tester T02,Make the error message bolder and closer to the field,Shwe Yi Htet,Pending
