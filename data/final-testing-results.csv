@@ -1,0 +1,7 @@
+Tester_ID,Tester_Type,Task_ID,Task_Description,Completed,Completion_Time_Min,Confusion_Point,Feedback_Score_1_5,Comment,Related_Requirement
+T01,Student,T01,Explain homepage purpose,Yes,1.0,None,5,Clear that it is for finding a tutor,FR-01
+T01,Student,T02,Search tutor by subject and open profile,Yes,1.8,None,5,Filter and profile were easy to use,FR-06/FR-07
+T02,Student,T03,Submit a booking request,Yes,2.0,None,5,Validation message now clear after fix,FR-03/FR-10/FR-11
+T03,Student,T04,View booking status on Dashboard,Yes,1.5,None,5,Status legend made Pending/Approved clear,FR-05/FR-08/FR-12
+T04,Student,T02,Search tutor by subject and open profile,Yes,1.5,None,5,Found a Chemistry tutor quickly,FR-06/FR-07
+T05,Admin,T05,Approve tutor and update booking status,Yes,2.5,None,5,Changes now persist and reflect on Dashboard,FR-08/FR-09
