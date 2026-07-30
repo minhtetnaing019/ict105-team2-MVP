@@ -1,0 +1,5 @@
+channel,target_user,message_angle,cta,metric,responsible_note
+Class chat,Students who ask chat groups for tutors,Stop scrolling chat groups for a tutor before exams,Try Demo,CTA clicks,No personal contact info collected on landing page
+Campus QR poster,Students on campus near exam period,Find a tutor before the material piles up,Scan QR,QR scans/page views,"Poster shows general message only, no personal data"
+Instagram/Line story,Broader student community,One place to search and book a peer tutor,Test it now,Story clicks,"Link only, no data collection in the story itself"
+Direct outreach to peer tutors,Students who tutor informally,Get discovered by more students needing your subject,Give Feedback,Tutor sign-up interest,"Explain prototype is for a class project, not production use"
