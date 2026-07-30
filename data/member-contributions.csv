@@ -1,0 +1,5 @@
+member_name,role,files_updated,github_issue_or_commit,evidence_link,remarks
+Min Htet Naing,Team Lead,"docs/final-prototype-report.md, docs/final-submission-checklist.md, README.md",Lab14 final consolidation commit,https://github.com/minhtetnaing019/ict105-team2-MVP,Coordinated final submission
+Min Myat Maung,UI/UX Lead,"prototype/Prototype.html (admin/dashboard sync, mobile CSS)",Lab14 UI fixes commit,https://github.com/minhtetnaing019/ict105-team2-MVP,Fixed IMP-01/IMP-02/IMP-03
+Eaint Shwe Sin,Frontend Developer,"prototype/Prototype.html (status legend), docs/final-demo-script.md",Lab14 frontend commit,https://github.com/minhtetnaing019/ict105-team2-MVP,Added status legend (IMP-04)
+Shwe Yi Htet,Backend Developer,"docs/final-reflection.md, docs/requirement-traceability-matrix.md, pitch/final-pitch-outline.md",Lab14 documentation commit,https://github.com/minhtetnaing019/ict105-team2-MVP,Finalized traceability and pitch
