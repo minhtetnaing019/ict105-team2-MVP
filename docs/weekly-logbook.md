@@ -469,3 +469,118 @@ Nine metrics defined across usage, status, category, user activity, validation, 
 
 ### Lecturer / TA Notes
 (For lecturer/TA use.)
+
+---
+
+## Lab 12: Landing Page and Digital Go-to-Market
+
+### Group Information
+- Group name: team2
+- Project title: StudyBridge — Peer Tutoring Booking Platform
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Lab date: 2026-07-30
+
+### What We Built Today
+- Built a landing page reusing the visual language (colors, typography, tone) of `prototype/Prototype.html`. The hero states the exam-season problem and value proposition, a features grid maps to FR-06/FR-07/FR-03/FR-08/FR-12, and the primary CTA opens the prototype demo directly.
+- Wrote the go-to-market plan: target early users are students who have needed a tutor before (same profile as `data/test-users.csv`); channels are class chat groups, a campus QR poster, and a student-community story, chosen because they match how students already search for tutors informally (Lab 03 finding).
+- Defined the acquisition metrics plan: landing page views, CTA clicks, demo attempts, and feedback responses, tracked with `localStorage` counters in `script.js` plus manual tally in `data/acquisition-metrics.csv`.
+
+### Member Contributions
+
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Min Htet Naing | Coordinated Lab 12 deliverables, reviewed landing page copy against `system-requirements.md`, updated README | `README.md` |
+| Min Myat Maung | Built the landing page HTML/CSS layout based on `prototype/Prototype.html` visual style | `landing-page/index.html`, `landing-page/style.css` |
+| Eaint Shwe Sin | Implemented landing page CTA/demo-attempt tracking script and wired buttons to the prototype | `landing-page/script.js` |
+| Shwe Yi Htet | Wrote the go-to-market plan, marketing messages, and acquisition metrics; populated sample metrics data | `docs/go-to-market-plan.md`, `docs/marketing-message.md`, `docs/acquisition-metrics.md`, `data/acquisition-metrics.csv` |
+
+### Problems Found
+- The prototype's booking form is still only partially wired (Lab 11 finding on mobile responsiveness), so the landing page CTA currently sends testers into a prototype with a known mobile layout issue on the Book a Session screen.
+- No live hosting yet — landing page and prototype are both local files, so acquisition metrics this week are from an internal team dry run, not real external users.
+
+### Next Actions Before Lab 13
+- Fix the remaining mobile CSS issues on the Book a Session and Admin screens before wider distribution.
+- Recruit external testers (beyond the team) for the Lab 13 user testing plan.
+- Decide whether to host the landing page and prototype (e.g. GitHub Pages) to get real acquisition metrics.
+
+---
+
+## Lab 13: Final User Testing and Pitch Prep
+
+### Group Information
+- Group name: team2
+- Project title: StudyBridge — Peer Tutoring Booking Platform
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Lab date: 2026-08-06
+
+### What We Built Today
+- Sales scenario: written around the pre-exam "stuck on an assignment" situation, tied to FR-01–FR-12.
+- Demo script: 8-step walkthrough covering all six prototype screens, with presenter roles assigned.
+- User testing plan: 5 tasks covering search, booking, status, and admin actions across 4 student testers + 1 admin tester.
+- User testing results: logged in `data/user-testing-results.csv`, following on from the Lab 11 test cases.
+- Final improvement list: 6 items prioritized Critical/Important/Useful/Future, carried forward from Lab 11 open defects plus new Lab 13 findings.
+- Screenshots: captured Find Tutors, Book a Session, Dashboard, and Admin screens during the testing session.
+
+### Member Contributions
+
+| Member Name | Contribution | GitHub Evidence |
+|---|---|---|
+| Min Htet Naing | Wrote the sales scenario and coordinated Lab 13 deliverables | `docs/sales-scenario.md` |
+| Min Myat Maung | Wrote the demo script and led the demo dry run | `docs/demo-script.md` |
+| Eaint Shwe Sin | Wrote the user testing plan and ran the user testing sessions | `docs/user-testing-plan.md`, `data/user-testing-results.csv` |
+| Shwe Yi Htet | Consolidated the final improvement list and updated the logbook | `docs/final-improvement-list.md` |
+
+### Key Decisions
+Carry forward the two Critical issues from Lab 11 (admin-to-dashboard refresh, tutor approval persistence) as the top priority fixes before Lab 14, since they block a clean live demo.
+
+### Problems Found
+Booking-status label confusion reappeared for a third round of testing (Lab 07 → Lab 08 → Lab 13), confirming it needs an actual UI fix (legend/tooltip) rather than just wording tweaks.
+
+### Next Actions Before Lab 14
+- Fix IMP-01 and IMP-02 (Critical) first.
+- Apply the mobile CSS fixes (IMP-03) and add the status legend (IMP-04/IMP-05).
+- Prepare the final demo script, pitch outline, and reflection for Lab 14.
+
+### Requirement Traceability Notes
+FR-08 and FR-09 need final verification before Lab 14, since both remain "Partially Completed" per `docs/feature-implementation-status.md` and are the source of the two Critical improvement items above.
+
+---
+
+## Lab 14: Final Prototype Submission
+
+### Group Information
+- Group name: team2
+- Project title: StudyBridge — Peer Tutoring Booking Platform
+- Repository link: https://github.com/minhtetnaing019/ict105-team2-MVP
+- Lab date: 2026-08-13
+
+### Members Present
+Min Htet Naing, Min Myat Maung, Eaint Shwe Sin, Shwe Yi Htet
+
+### What We Built Today
+- Applied the two Critical fixes carried over from Lab 13 (admin-to-dashboard status refresh, tutor-approval persistence).
+- Added the booking-status legend to resolve the recurring status-confusion finding.
+- Finalized mobile-responsive CSS for the booking form and admin tables.
+- Wrote the final prototype report, final demo script, final reflection, and requirement traceability matrix.
+- Prepared the final pitch outline and completed the final submission checklist.
+
+### Final Prototype Updates
+`prototype/Prototype.html` — Admin status changes now re-render the Dashboard immediately; tutor approvals persist to `localStorage`; booking form and admin tables no longer overflow at 375px width; a small status legend now explains Pending/Approved/Completed/Closed.
+
+### Final Documentation Updates
+`docs/final-prototype-report.md`, `docs/final-demo-script.md`, `docs/final-reflection.md`, `docs/requirement-traceability-matrix.md`, `docs/final-submission-checklist.md`, `pitch/final-pitch-outline.md`.
+
+### Member Contributions
+
+| Member | Contribution | Evidence |
+|---|---|---|
+| Min Htet Naing | Final prototype report, submission checklist, README consolidation | `docs/final-prototype-report.md`, `docs/final-submission-checklist.md` |
+| Min Myat Maung | Admin/Dashboard sync fix, mobile CSS fixes | `prototype/Prototype.html` |
+| Eaint Shwe Sin | Status legend, final demo script | `prototype/Prototype.html`, `docs/final-demo-script.md` |
+| Shwe Yi Htet | Final reflection, requirement traceability matrix, pitch outline | `docs/final-reflection.md`, `docs/requirement-traceability-matrix.md`, `pitch/final-pitch-outline.md` |
+
+### Problems Found Before Submission
+Final screenshots still need to be recaptured against the fixed UI before the checklist item can be marked complete.
+
+### Action Before Final Presentation
+Recapture final screenshots into `/screenshots/`, do one full run-through of the demo script as a team, and have the group double-check the submission link before sending it to the lecturer.
