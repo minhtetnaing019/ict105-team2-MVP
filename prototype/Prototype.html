@@ -21,6 +21,8 @@
     --tag-econ:#C9821F;
     --tag-write:#6A5ACD;
     --tag-phys:#D14D4D;
+    --tag-bio:#2E9E6D;
+    --tag-eng:#5A87D6;
   }
   *{box-sizing:border-box;}
   body{
@@ -100,13 +102,15 @@
     font-family:'Inter',sans-serif; font-size:14px; background:#fff; color:var(--ink);
   }
   .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--amber); border-color:var(--amber); }
-  .field.error input{ border-color:var(--tag-phys); }
-  .error-msg{ color:var(--tag-phys); font-size:12px; margin-top:5px; font-weight:600; }
+  .field.error input, .field.error select{ border-color:var(--tag-phys); }
+  .error-msg{ color:var(--tag-phys); font-size:12.5px; margin-top:6px; font-weight:700; display:none; align-items:center; gap:5px; }
+  .field.error .error-msg{ display:flex; }
   .row2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .confirm-banner{
     background:#E9F5EF; border:1px solid var(--green); color:#1F5C46; border-radius:9px;
-    padding:12px 16px; font-size:13.5px; font-weight:600; margin-bottom:18px; display:flex; gap:8px; align-items:center;
+    padding:12px 16px; font-size:13.5px; font-weight:600; margin-bottom:18px; display:none; gap:8px; align-items:center;
   }
+  .confirm-banner.show{ display:flex; }
 
   /* ---- Tutor List ---- */
   .list-controls{ display:flex; gap:12px; margin-bottom:20px; }
@@ -133,6 +137,7 @@
   }
   .avail{ font-size:12.5px; color:var(--ink-soft); margin-bottom:14px; }
   .view-btn{ width:100%; }
+  .empty-state{ text-align:center; padding:48px 20px; color:var(--ink-soft); background:var(--card); border:1px dashed var(--line); border-radius:12px; }
 
   /* ---- Detail View ---- */
   .detail-wrap{ display:grid; grid-template-columns:260px 1fr; gap:28px; }
@@ -160,36 +165,72 @@
   .panels{ display:grid; grid-template-columns:1.3fr 1fr; gap:20px; }
   .panel{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
   .panel h3{ font-size:16px; margin-bottom:14px; }
-  .session-row{ display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
+  .session-row{ display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); font-size:13.5px; gap:10px; }
   .session-row:last-child{ border:none; }
-  .tag-small{ font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; background:var(--paper); color:var(--ink-soft); }
+  .session-row .who{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .tag-small{ font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; background:var(--paper); color:var(--ink-soft); white-space:nowrap; }
   .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:12px; font-size:12.5px; }
+  .bar-row .bar-label{ width:110px; flex:0 0 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .bar-track{ flex:1; height:8px; background:var(--paper); border-radius:5px; overflow:hidden; }
   .bar-fill{ height:100%; background:var(--amber); border-radius:5px; }
 
+  /* ---- Status legend & pills (shared) ---- */
+  .status-legend{
+    display:flex; flex-wrap:wrap; gap:10px 18px; background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:12px 16px; margin-bottom:18px; font-size:12.5px; color:var(--ink-soft);
+  }
+  .status-legend strong{ color:var(--ink); }
+  .status-legend .legend-item{ display:flex; align-items:center; gap:6px; }
+  .legend-dot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .status-pill{ font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+  .status-pending{ background:#FDF0DC; color:var(--amber-dark); }
+  .status-approved{ background:#E9F0FE; color:#2C4AB0; }
+  .status-completed{ background:#E4F3EC; color:#1F5C46; }
+  .status-closed{ background:#EDEFF3; color:var(--ink-soft); }
+
   /* ---- Admin ---- */
-  .admin-tabs{ display:flex; gap:6px; margin-bottom:18px; }
+  .admin-tabs{ display:flex; gap:6px; margin-bottom:18px; flex-wrap:wrap; }
   .admin-tabs button{
     border:1px solid var(--line); background:#fff; padding:8px 14px; border-radius:7px; font-size:13px; font-weight:600; cursor:pointer;
   }
   .admin-tabs button.active{ background:var(--ink); color:#fff; border-color:var(--ink); }
-  table{ width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
-  th{ text-align:left; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); background:var(--paper); padding:12px 14px; }
+  .admin-panel{ display:none; }
+  .admin-panel.active{ display:block; }
+  .table-scroll{ width:100%; overflow-x:auto; border-radius:12px; }
+  table{ width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; min-width:560px; }
+  th{ text-align:left; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); background:var(--paper); padding:12px 14px; white-space:nowrap; }
   td{ padding:12px 14px; font-size:13.5px; border-top:1px solid var(--line); }
-  .status-pill{ font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
-  .status-pending{ background:#FDF0DC; color:var(--amber-dark); }
-  .status-approved{ background:#E4F3EC; color:#1F5C46; }
-  .status-active{ background:#E9F0FE; color:#2C4AB0; }
-  .row-actions{ display:flex; gap:6px; }
+  .row-actions{ display:flex; gap:6px; flex-wrap:wrap; }
   .icon-btn{ border:1px solid var(--line); background:#fff; border-radius:6px; padding:5px 10px; font-size:12px; cursor:pointer; font-weight:600; }
   .icon-btn.danger{ color:var(--tag-phys); border-color:#F0C9C9; }
   .icon-btn:hover{ background:var(--paper); }
-  .admin-search{ margin-bottom:16px; padding:10px 14px; border:1px solid var(--line); border-radius:8px; width:280px; font-size:14px; }
+  .icon-btn:disabled{ opacity:.45; cursor:not-allowed; }
+  .status-select{ padding:5px 8px; border:1px solid var(--line); border-radius:6px; font-size:12.5px; font-family:'Inter',sans-serif; }
+  .admin-search{ margin-bottom:16px; padding:10px 14px; border:1px solid var(--line); border-radius:8px; width:280px; max-width:100%; font-size:14px; }
+  .toast{
+    position:fixed; bottom:24px; right:24px; background:var(--ink); color:#fff; padding:12px 18px;
+    border-radius:9px; font-size:13.5px; font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,.2);
+    opacity:0; transform:translateY(8px); transition:.25s; pointer-events:none; z-index:50;
+  }
+  .toast.show{ opacity:1; transform:translateY(0); }
 
   @media (max-width:800px){
     .about-grid, .tutor-grid, .stat-row, .row2, .detail-wrap, .panels{ grid-template-columns:1fr; }
     .hero{ flex-direction:column; align-items:flex-start; }
     .navlinks{ display:none; }
+  }
+
+  @media (max-width:600px){
+    .screen{ padding:20px 16px; }
+    .hero{ padding:32px 24px; border-radius:12px; }
+    .hero h1{ font-size:26px; }
+    .topnav{ padding:12px 16px; }
+    .navcta .btn{ padding:8px 10px; font-size:12.5px; }
+    .form-card{ padding:20px; max-width:100%; }
+    .list-controls{ flex-direction:column; }
+    .admin-search{ width:100%; }
+    .stat-card .value{ font-size:22px; }
+    .footer{ flex-direction:column; gap:6px; }
   }
 </style>
 </head>
@@ -224,8 +265,8 @@
       </div>
     </div>
     <div class="hero-tabs">
-      <div class="hero-stat"><b>128</b><span>tutors listed this semester</span></div>
-      <div class="hero-stat"><b>4.7</b><span>average tutor rating</span></div>
+      <div class="hero-stat"><b id="stat-tutor-count">–</b><span>tutors listed this semester</span></div>
+      <div class="hero-stat"><b id="stat-avg-rating">–</b><span>average tutor rating</span></div>
       <div class="hero-stat"><b>&lt; 1 day</b><span>average time to book</span></div>
     </div>
   </div>
@@ -247,51 +288,43 @@
   <div class="screen-tag">Book a Session</div>
   <h2 style="font-size:26px;margin-bottom:20px;">Request a tutoring session</h2>
 
-  <div class="confirm-banner">✓ Booking confirmed — Alex Johnson will meet you Thursday 4:00 PM for Data Structures.</div>
+  <div class="confirm-banner" id="confirmBanner">✓ <span id="confirmText"></span></div>
 
-  <div class="form-card">
-    <div class="field">
+  <form class="form-card" id="bookingForm" novalidate>
+    <div class="field" id="field-name">
       <label>Student name</label>
-      <input type="text" value="" placeholder="Your full name">
+      <input type="text" id="f-student-name" placeholder="Your full name">
+      <div class="error-msg">⚠ Please enter your name.</div>
     </div>
     <div class="row2">
-      <div class="field">
+      <div class="field" id="field-subject">
         <label>Subject</label>
-        <select>
-          <option>Data Structures & Algorithms</option>
-          <option>Calculus II</option>
-          <option>Organic Chemistry</option>
-          <option>Microeconomics</option>
-          <option>Academic Writing</option>
-        </select>
+        <select id="f-subject"></select>
       </div>
-      <div class="field">
+      <div class="field" id="field-tutor">
         <label>Tutor</label>
-        <select>
-          <option>Priya Nair — 4.9★</option>
-          <option>Marcus Webb — 4.7★</option>
-          <option>Any available tutor</option>
-        </select>
+        <select id="f-tutor"></select>
       </div>
     </div>
     <div class="row2">
-      <div class="field">
+      <div class="field" id="field-date">
         <label>Date</label>
-        <input type="date" value="2026-07-16">
+        <input type="date" id="f-date">
+        <div class="error-msg">⚠ Please select a date.</div>
       </div>
-      <div class="field error">
+      <div class="field" id="field-time">
         <label>Time</label>
-        <input type="time" value="">
-        <div class="error-msg">Please select a time — this field is required.</div>
+        <input type="time" id="f-time">
+        <div class="error-msg">⚠ Please select a time — this field is required.</div>
       </div>
     </div>
     <div class="field">
       <label>Notes for the tutor <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
-      <textarea rows="3" placeholder="e.g. Need help with recursion and Big-O before Friday's quiz"></textarea>
-      <div class="hint">Sharing what you're stuck on helps your tutor prepare examples.</div>
+      <textarea rows="3" id="f-notes" placeholder="e.g. Need help with recursion and Big-O before Friday's quiz"></textarea>
+      <div class="hint">Sharing what you're stuck on helps your tutor prepare examples. Do not include sensitive personal information here.</div>
     </div>
-    <button class="btn btn-primary" style="width:100%;padding:12px;">Submit booking request</button>
-  </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;padding:12px;">Submit booking request</button>
+  </form>
 </div>
 
 <!-- 3. TUTOR LIST -->
@@ -299,88 +332,37 @@
   <div class="screen-tag">Find Tutors</div>
   <h2 style="font-size:26px;margin-bottom:20px;">Browse available tutors</h2>
   <div class="list-controls">
-    <input type="text" placeholder="Search by tutor name or keyword...">
-    <select><option>All subjects</option><option>Math</option><option>Computer Science</option><option>Chemistry</option><option>Economics</option><option>Writing</option></select>
+    <input type="text" id="tutorSearch" placeholder="Search by tutor name or keyword...">
+    <select id="subjectFilter"><option value="">All subjects</option></select>
   </div>
-  <div class="tutor-grid">
-    <div class="tutor-card" style="--tag-color:var(--tag-cs)">
-      <div class="tutor-top"><div class="avatar">AJ</div><div class="rating">★ 4.9</div></div>
-      <h3>Alex Johnson</h3>
-      <span class="subject-pill">Data Structures</span>
-      <div class="avail">Open slots: Tue, Thu 3–6 PM</div>
-      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
-    </div>
-    <div class="tutor-card" style="--tag-color:var(--tag-math)">
-      <div class="tutor-top"><div class="avatar">TH</div><div class="rating">★ 4.7</div></div>
-      <h3>Tom Holand</h3>
-      <span class="subject-pill">Calculus II</span>
-      <div class="avail">Open slots: Mon, Wed 5–8 PM</div>
-      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
-    </div>
-    <div class="tutor-card" style="--tag-color:var(--tag-chem)">
-      <div class="tutor-top"><div class="avatar">SL</div><div class="rating">★ 4.8</div></div>
-      <h3>Sara Lindqvist</h3>
-      <span class="subject-pill">Organic Chemistry</span>
-      <div class="avail">Open slots: Fri 1–5 PM</div>
-      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
-    </div>
-    <div class="tutor-card" style="--tag-color:var(--tag-econ)">
-      <div class="tutor-top"><div class="avatar">JM</div><div class="rating">★ 4.6</div></div>
-      <h3>Ji Min</h3>
-      <span class="subject-pill">Microeconomics</span>
-      <div class="avail">Open slots: Tue, Fri 10 AM–1 PM</div>
-      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
-    </div>
-    <div class="tutor-card" style="--tag-color:var(--tag-write)">
-      <div class="tutor-top"><div class="avatar">MT</div><div class="rating">★ 4.9</div></div>
-      <h3>Micheal Tomson</h3>
-      <span class="subject-pill">Academic Writing</span>
-      <div class="avail">Open slots: Mon–Thu evenings</div>
-      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
-    </div>
-    <div class="tutor-card" style="--tag-color:var(--tag-phys)">
-      <div class="tutor-top"><div class="avatar">HQ</div><div class="rating">★ 4.5</div></div>
-      <h3>Herley Queen</h3>
-      <span class="subject-pill">Physics I</span>
-      <div class="avail">Open slots: Wed, Sat 2–5 PM</div>
-      <button class="btn btn-ghost view-btn" onclick="showScreen('detail', document.querySelectorAll('.navlinks button')[3])">View Details</button>
-    </div>
-  </div>
+  <div class="tutor-grid" id="tutorGrid"></div>
 </div>
 
 <!-- 4. TUTOR DETAIL -->
 <div class="screen" id="detail">
   <div class="screen-tag">Tutor Profile</div>
-  <h2 style="font-size:26px;margin-bottom:20px;">Alex Johnson</h2>
+  <h2 style="font-size:26px;margin-bottom:20px;" id="detailName">Tutor</h2>
   <div class="detail-wrap">
     <div class="detail-side">
-      <div class="detail-avatar">AJ</div>
-      <h3 style="font-size:17px;">Alex Johnson</h3>
-      <div class="rating" style="margin:6px 0;">★ 4.9 (32 sessions)</div>
-      <span class="subject-pill" style="background:var(--tag-cs);">Data Structures</span>
+      <div class="detail-avatar" id="detailAvatar">–</div>
+      <h3 style="font-size:17px;" id="detailSideName">–</h3>
+      <div class="rating" id="detailRating" style="margin:6px 0;">★ –</div>
+      <span class="subject-pill" id="detailSidePill">–</span>
       <div class="contact">
-        <div>📧 johnson.alex@rsu.ac.th</div>
+        <div id="detailEmail">📧 –</div>
         <div>💬 Responds in ~2 hours</div>
-        <div>🎓 3rd-year Computer Science</div>
+        <div id="detailYear">🎓 –</div>
       </div>
-      <button class="btn btn-primary" style="width:100%;margin-top:16px;" onclick="showScreen('book', document.querySelectorAll('.navlinks button')[1])">Book Now</button>
+      <button class="btn btn-primary" style="width:100%;margin-top:16px;" onclick="bookThisTutor()">Book Now</button>
     </div>
     <div class="detail-main">
       <div class="status-live">Available this week</div>
       <h3 style="font-size:18px;">About</h3>
-      <p style="color:var(--ink-soft);font-size:14px;line-height:1.6;">Tutors Data Structures & Algorithms, focusing on recursion, trees, and Big-O analysis. Prefers working through past exam questions rather than re-teaching lecture slides.</p>
+      <p style="color:var(--ink-soft);font-size:14px;line-height:1.6;" id="detailBio">–</p>
       <h3 style="font-size:18px;margin-top:20px;">Subjects taught</h3>
-      <div style="display:flex;gap:8px;margin-top:8px;">
-        <span class="subject-pill" style="background:var(--tag-cs);">Data Structures</span>
-        <span class="subject-pill" style="background:var(--tag-math);">Discrete Math</span>
-      </div>
+      <div id="detailSubjects" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;"></div>
       <h3 style="font-size:18px;margin-top:22px;">This week's schedule</h3>
-      <div class="schedule-grid">
-        <div class="slot open">Tue 3PM</div>
-        <div class="slot full">Tue 5PM<br>Booked</div>
-        <div class="slot open">Thu 3PM</div>
-        <div class="slot open">Thu 5PM</div>
-      </div>
+      <div class="schedule-grid" id="detailSchedule"></div>
     </div>
   </div>
 </div>
@@ -389,24 +371,27 @@
 <div class="screen" id="dashboard">
   <div class="screen-tag">Your Dashboard</div>
   <h2 style="font-size:26px;margin-bottom:20px;">Welcome back, Hamilton</h2>
+  <div class="status-legend">
+    <strong>Status legend:</strong>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--amber-dark)"></span>Pending — submitted, waiting for admin confirmation</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#2C4AB0"></span>Approved — accepted, session is confirmed</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--green)"></span>Completed — session finished</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--ink-soft)"></span>Closed — cancelled or expired</span>
+  </div>
   <div class="stat-row">
-    <div class="stat-card"><div class="label">Total bookings</div><div class="value">9</div><div class="delta">+2 this month</div></div>
-    <div class="stat-card"><div class="label">Upcoming sessions</div><div class="value">2</div><div class="delta">Next: Thu 4 PM</div></div>
-    <div class="stat-card"><div class="label">Completed sessions</div><div class="value">7</div><div class="delta">100% attendance</div></div>
-    <div class="stat-card"><div class="label">Avg. tutor rating given</div><div class="value">4.8</div><div class="delta">Across 7 reviews</div></div>
+    <div class="stat-card"><div class="label">Total bookings</div><div class="value" id="db-total">0</div><div class="delta" id="db-total-delta">&nbsp;</div></div>
+    <div class="stat-card"><div class="label">Upcoming sessions</div><div class="value" id="db-upcoming">0</div><div class="delta" id="db-upcoming-delta">&nbsp;</div></div>
+    <div class="stat-card"><div class="label">Completed sessions</div><div class="value" id="db-completed">0</div><div class="delta" id="db-completed-delta">&nbsp;</div></div>
+    <div class="stat-card"><div class="label">Booking success rate</div><div class="value" id="db-success-rate">0%</div><div class="delta">Approved + Completed / Total</div></div>
   </div>
   <div class="panels">
     <div class="panel">
-      <h3>Upcoming sessions</h3>
-      <div class="session-row"><span>Data Structures — Alex Johnson</span><span class="tag-small">Thu, 4:00 PM</span></div>
-      <div class="session-row"><span>Calculus II — Tom Holand</span><span class="tag-small">Mon, 6:00 PM</span></div>
-      <div class="session-row"><span>Organic Chemistry — Sara Lindqvist</span><span class="tag-small mono">Completed</span></div>
+      <h3>Upcoming &amp; recent sessions</h3>
+      <div id="db-session-list"></div>
     </div>
     <div class="panel">
       <h3>Sessions by subject</h3>
-      <div class="bar-row"><span style="width:110px;">Data Structures</span><div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div><span>4</span></div>
-      <div class="bar-row"><span style="width:110px;">Calculus II</span><div class="bar-track"><div class="bar-fill" style="width:50%;"></div></div><span>3</span></div>
-      <div class="bar-row"><span style="width:110px;">Chemistry</span><div class="bar-track"><div class="bar-fill" style="width:30%;"></div></div><span>2</span></div>
+      <div id="db-subject-bars"></div>
     </div>
   </div>
 </div>
@@ -414,48 +399,409 @@
 <!-- 6. ADMIN -->
 <div class="screen" id="admin">
   <div class="screen-tag">Administrator</div>
-  <h2 style="font-size:26px;margin-bottom:20px;">Manage users & bookings</h2>
-  <input class="admin-search" type="text" placeholder="Search users or bookings...">
+  <h2 style="font-size:26px;margin-bottom:20px;">Manage users &amp; bookings</h2>
+  <input class="admin-search" type="text" id="adminSearch" placeholder="Search users or bookings...">
   <div class="admin-tabs">
-    <button class="active">Tutor Approvals</button>
-    <button>All Users</button>
-    <button>Bookings</button>
+    <button class="active" data-tab="approvals" onclick="showAdminTab('approvals', this)">Tutor Approvals</button>
+    <button data-tab="users" onclick="showAdminTab('users', this)">All Users</button>
+    <button data-tab="bookings" onclick="showAdminTab('bookings', this)">Bookings</button>
   </div>
-  <table>
-    <thead><tr><th>Name</th><th>Subject</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
-    <tbody>
-      <tr>
-        <td>Herley Queen</td><td>Physics I</td><td>Tutor (new)</td>
-        <td><span class="status-pill status-pending">Pending</span></td>
-        <td class="row-actions"><button class="icon-btn">Approve</button><button class="icon-btn danger">Reject</button></td>
-      </tr>
-      <tr>
-        <td>Alex Johnson</td><td>Data Structures</td><td>Tutor</td>
-        <td><span class="status-pill status-approved">Approved</span></td>
-        <td class="row-actions"><button class="icon-btn">Edit</button><button class="icon-btn danger">Delete</button></td>
-      </tr>
-      <tr>
-        <td>Lewis Hamilton</td><td>—</td><td>Student</td>
-        <td><span class="status-pill status-active">Active</span></td>
-        <td class="row-actions"><button class="icon-btn">Edit</button><button class="icon-btn danger">Delete</button></td>
-      </tr>
-      <tr>
-        <td>Booking #A-1042</td><td>Calculus II</td><td>Session</td>
-        <td><span class="status-pill status-pending">Awaiting Tutor</span></td>
-        <td class="row-actions"><button class="icon-btn">Update Status</button><button class="icon-btn danger">Cancel</button></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div class="admin-panel active" id="admin-approvals">
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Name</th><th>Subject</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="approvalsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="admin-panel" id="admin-users">
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Name</th><th>Subject</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="usersBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="admin-panel" id="admin-bookings">
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Booking</th><th>Student</th><th>Tutor</th><th>Subject</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="bookingsBody"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
+/* ============================================================
+   StudyBridge prototype logic
+   Data model: Tutor / Booking / Student per docs/data-structure.md
+   Persistence: browser localStorage (frontend-only prototype,
+   see docs/technical-architecture.md)
+   ============================================================ */
+
+const LS_KEYS = {
+  tutors: 'sb_tutors',
+  bookings: 'sb_bookings',
+  seeded: 'sb_seeded_v2'
+};
+
+const SUBJECT_TAGS = {
+  'Mathematics':'--tag-math','Calculus II':'--tag-math','Discrete Math':'--tag-math',
+  'Programming':'--tag-cs','Data Structures':'--tag-cs',
+  'Chemistry':'--tag-chem','Organic Chemistry':'--tag-chem',
+  'Economics':'--tag-econ','Microeconomics':'--tag-econ',
+  'English':'--tag-write','Academic Writing':'--tag-write',
+  'Physics':'--tag-phys','Physics I':'--tag-phys',
+  'Biology':'--tag-bio'
+};
+
+const DEFAULT_TUTORS = [
+  { tutor_id:'T001', name:'John Smith', subjects:['Mathematics','Discrete Math'], availability:['Tue 3-6 PM','Thu 3-6 PM'], schedule:[{label:'Tue 3PM',open:true},{label:'Tue 5PM',open:false},{label:'Thu 3PM',open:true},{label:'Thu 5PM',open:true}], rating:4.9, sessions:32, bio:"Tutors Mathematics, focusing on recursion, trees, and Big-O analysis. Prefers working through past exam questions rather than re-teaching lecture slides.", email:'smith.john@rsu.ac.th', year:'3rd-year Computer Science', approved:true },
+  { tutor_id:'T002', name:'Sarah Lim', subjects:['English','Biology'], availability:['Mon 5-8 PM','Wed 5-8 PM'], schedule:[{label:'Mon 5PM',open:true},{label:'Mon 6PM',open:false},{label:'Wed 5PM',open:true},{label:'Wed 6PM',open:true}], rating:4.7, sessions:21, bio:"Helps with academic writing structure and biology fundamentals, with an emphasis on exam technique.", email:'lim.sarah@rsu.ac.th', year:'4th-year English Literature', approved:true },
+  { tutor_id:'T003', name:'Michael Chen', subjects:['Programming'], availability:['Fri 1-5 PM'], schedule:[{label:'Fri 1PM',open:true},{label:'Fri 2PM',open:false},{label:'Fri 3PM',open:true},{label:'Fri 4PM',open:true}], rating:4.8, sessions:27, bio:"Programming tutor covering Java and general problem solving, with sample projects for practice.", email:'chen.michael@rsu.ac.th', year:'3rd-year Computer Science', approved:true },
+  { tutor_id:'T004', name:'Emily Davis', subjects:['Chemistry'], availability:['Tue 10 AM-1 PM','Fri 10 AM-1 PM'], schedule:[{label:'Tue 10AM',open:true},{label:'Tue 11AM',open:false},{label:'Fri 10AM',open:true},{label:'Fri 11AM',open:true}], rating:4.6, sessions:18, bio:"Organic chemistry tutor, prefers working through reaction mechanisms with visual diagrams.", email:'davis.emily@rsu.ac.th', year:'2nd-year Chemistry', approved:true },
+  { tutor_id:'T005', name:'Kevin Tan', subjects:['Mathematics'], availability:['Mon-Thu evenings'], schedule:[{label:'Mon 6PM',open:true},{label:'Tue 6PM',open:true},{label:'Wed 6PM',open:false},{label:'Thu 6PM',open:true}], rating:4.5, sessions:15, bio:"Mathematics tutor specializing in calculus and statistics for first- and second-year students.", email:'tan.kevin@rsu.ac.th', year:'4th-year Mathematics', approved:false }
+];
+
+const DEFAULT_BOOKINGS = [
+  { booking_id:'B001', student_id:'S001', student_name:'Alice Tan', tutor_id:'T001', tutor_name:'John Smith', subject:'Mathematics', booking_date:'2026-07-10', session_date:'2026-07-15', time_slot:'09:00-10:00', status:'Completed', notes:'' },
+  { booking_id:'B002', student_id:'S002', student_name:'David Lee', tutor_id:'T002', tutor_name:'Sarah Lim', subject:'English', booking_date:'2026-07-11', session_date:'2026-07-16', time_slot:'10:00-11:00', status:'Approved', notes:'' },
+  { booking_id:'B003', student_id:'S003', student_name:'Emma Wong', tutor_id:'T003', tutor_name:'Michael Chen', subject:'Programming', booking_date:'2026-07-12', session_date:'2026-07-17', time_slot:'13:00-14:00', status:'Pending', notes:'' },
+  { booking_id:'B004', student_id:'S004', student_name:'Daniel Tan', tutor_id:'T001', tutor_name:'John Smith', subject:'Physics', booking_date:'2026-07-13', session_date:'2026-07-18', time_slot:'14:00-15:00', status:'Closed', notes:'' },
+  { booking_id:'B005', student_id:'S005', student_name:'Sophia Lim', tutor_id:'T004', tutor_name:'Emily Davis', subject:'Chemistry', booking_date:'2026-07-14', session_date:'2026-07-19', time_slot:'15:00-16:00', status:'Approved', notes:'' },
+  { booking_id:'B006', student_id:'S006', student_name:'James Ong', tutor_id:'T005', tutor_name:'Kevin Tan', subject:'Mathematics', booking_date:'2026-07-15', session_date:'2026-07-20', time_slot:'11:00-12:00', status:'Pending', notes:'' },
+  { booking_id:'B007', student_id:'S007', student_name:'Olivia Ng', tutor_id:'T002', tutor_name:'Sarah Lim', subject:'Biology', booking_date:'2026-07-16', session_date:'2026-07-21', time_slot:'09:00-10:00', status:'Completed', notes:'' },
+  { booking_id:'B008', student_id:'S008', student_name:'Ethan Lim', tutor_id:'T003', tutor_name:'Michael Chen', subject:'Programming', booking_date:'2026-07-17', session_date:'2026-07-22', time_slot:'16:00-17:00', status:'Approved', notes:'' },
+  { booking_id:'B009', student_id:'S009', student_name:'Grace Tan', tutor_id:'T004', tutor_name:'Emily Davis', subject:'Chemistry', booking_date:'2026-07-18', session_date:'2026-07-23', time_slot:'10:00-11:00', status:'Pending', notes:'' },
+  { booking_id:'B010', student_id:'S010', student_name:'Noah Lee', tutor_id:'T005', tutor_name:'Kevin Tan', subject:'Mathematics', booking_date:'2026-07-19', session_date:'2026-07-24', time_slot:'13:00-14:00', status:'Closed', notes:'' }
+];
+
+function loadTutors(){ return JSON.parse(localStorage.getItem(LS_KEYS.tutors) || '[]'); }
+function saveTutors(t){ localStorage.setItem(LS_KEYS.tutors, JSON.stringify(t)); }
+function loadBookings(){ return JSON.parse(localStorage.getItem(LS_KEYS.bookings) || '[]'); }
+function saveBookings(b){ localStorage.setItem(LS_KEYS.bookings, JSON.stringify(b)); }
+
+function seedIfNeeded(){
+  if(!localStorage.getItem(LS_KEYS.seeded)){
+    saveTutors(DEFAULT_TUTORS);
+    saveBookings(DEFAULT_BOOKINGS);
+    localStorage.setItem(LS_KEYS.seeded, 'true');
+  }
+}
+
+function tagVarFor(subject){ return SUBJECT_TAGS[subject] || '--tag-math'; }
+function initials(name){ return name.split(' ').map(p=>p[0]).slice(0,2).join('').toUpperCase(); }
+
+let selectedTutorId = null;
+let currentAdminTab = 'approvals';
+
+/* ---------- Navigation ---------- */
 function showScreen(id, btn){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.navlinks button').forEach(b => b.classList.remove('active'));
   if(btn) btn.classList.add('active');
   window.scrollTo(0,0);
+  if(id === 'list') renderTutorList();
+  if(id === 'dashboard') renderDashboard();
+  if(id === 'admin') renderAdmin();
+  if(id === 'home') renderHomeStats();
 }
+
+function showAdminTab(tab, btn){
+  currentAdminTab = tab;
+  document.querySelectorAll('.admin-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('admin-' + tab).classList.add('active');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---------- Home ---------- */
+function renderHomeStats(){
+  const tutors = loadTutors().filter(t => t.approved);
+  document.getElementById('stat-tutor-count').textContent = tutors.length;
+  const avg = tutors.length ? (tutors.reduce((s,t)=>s+t.rating,0) / tutors.length).toFixed(1) : '–';
+  document.getElementById('stat-avg-rating').textContent = avg;
+}
+
+/* ---------- Find Tutors ---------- */
+function populateSubjectOptions(){
+  const tutors = loadTutors();
+  const subjects = [...new Set(tutors.flatMap(t => t.subjects))].sort();
+
+  const filterSelect = document.getElementById('subjectFilter');
+  filterSelect.innerHTML = '<option value="">All subjects</option>' +
+    subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+
+  const formSubject = document.getElementById('f-subject');
+  formSubject.innerHTML = subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+
+  const formTutor = document.getElementById('f-tutor');
+  formTutor.innerHTML = '<option value="">Any available tutor</option>' +
+    tutors.filter(t=>t.approved).map(t => `<option value="${t.tutor_id}">${t.name} — ${t.rating}★</option>`).join('');
+}
+
+function renderTutorList(){
+  const grid = document.getElementById('tutorGrid');
+  const query = (document.getElementById('tutorSearch').value || '').toLowerCase();
+  const subjectFilter = document.getElementById('subjectFilter').value;
+  const tutors = loadTutors().filter(t => t.approved);
+
+  const filtered = tutors.filter(t => {
+    const matchesQuery = !query || t.name.toLowerCase().includes(query) || t.subjects.join(' ').toLowerCase().includes(query);
+    const matchesSubject = !subjectFilter || t.subjects.includes(subjectFilter);
+    return matchesQuery && matchesSubject;
+  });
+
+  if(filtered.length === 0){
+    grid.innerHTML = '<div class="empty-state">No tutors match your search. Try a different subject or keyword.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(t => `
+    <div class="tutor-card" style="--tag-color:var(${tagVarFor(t.subjects[0])})">
+      <div class="tutor-top"><div class="avatar">${initials(t.name)}</div><div class="rating">★ ${t.rating}</div></div>
+      <h3>${t.name}</h3>
+      <span class="subject-pill">${t.subjects[0]}</span>
+      <div class="avail">Open slots: ${t.availability.join(', ')}</div>
+      <button class="btn btn-ghost view-btn" onclick="openTutorDetail('${t.tutor_id}')">View Details</button>
+    </div>
+  `).join('');
+}
+
+function openTutorDetail(tutorId){
+  selectedTutorId = tutorId;
+  showScreen('detail', document.querySelectorAll('.navlinks button')[3]);
+  renderTutorDetail();
+}
+
+function renderTutorDetail(){
+  const tutors = loadTutors();
+  const t = tutors.find(x => x.tutor_id === selectedTutorId) || tutors.find(x=>x.approved);
+  if(!t) return;
+  selectedTutorId = t.tutor_id;
+
+  document.getElementById('detailName').textContent = t.name;
+  document.getElementById('detailAvatar').textContent = initials(t.name);
+  document.getElementById('detailAvatar').style.background = `var(${tagVarFor(t.subjects[0])})`;
+  document.getElementById('detailSideName').textContent = t.name;
+  document.getElementById('detailRating').textContent = `★ ${t.rating} (${t.sessions} sessions)`;
+  document.getElementById('detailSidePill').textContent = t.subjects[0];
+  document.getElementById('detailSidePill').style.background = `var(${tagVarFor(t.subjects[0])})`;
+  document.getElementById('detailEmail').textContent = `📧 ${t.email}`;
+  document.getElementById('detailYear').textContent = `🎓 ${t.year}`;
+  document.getElementById('detailBio').textContent = t.bio;
+  document.getElementById('detailSubjects').innerHTML = t.subjects.map(s =>
+    `<span class="subject-pill" style="background:var(${tagVarFor(s)})">${s}</span>`).join('');
+  document.getElementById('detailSchedule').innerHTML = t.schedule.map(s =>
+    `<div class="slot ${s.open ? 'open' : 'full'}">${s.label}${s.open ? '' : '<br>Booked'}</div>`).join('');
+}
+
+function bookThisTutor(){
+  showScreen('book', document.querySelectorAll('.navlinks button')[1]);
+  if(selectedTutorId){
+    document.getElementById('f-tutor').value = selectedTutorId;
+    const t = loadTutors().find(x => x.tutor_id === selectedTutorId);
+    if(t) document.getElementById('f-subject').value = t.subjects[0];
+  }
+}
+
+document.getElementById('tutorSearch').addEventListener('input', renderTutorList);
+document.getElementById('subjectFilter').addEventListener('change', renderTutorList);
+
+/* ---------- Book a Session (FR-03, FR-10, FR-11, FR-04) ---------- */
+function validateField(fieldId, isValid){
+  const field = document.getElementById(fieldId);
+  field.classList.toggle('error', !isValid);
+  return isValid;
+}
+
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = document.getElementById('f-student-name').value.trim();
+  const subject = document.getElementById('f-subject').value;
+  const tutorId = document.getElementById('f-tutor').value;
+  const date = document.getElementById('f-date').value;
+  const time = document.getElementById('f-time').value;
+  const notes = document.getElementById('f-notes').value.trim();
+
+  const nameOk = validateField('field-name', name.length > 0);
+  const dateOk = validateField('field-date', date.length > 0);
+  const timeOk = validateField('field-time', time.length > 0);
+  validateField('field-subject', true);
+  validateField('field-tutor', true);
+
+  if(!nameOk || !dateOk || !timeOk){
+    document.getElementById('confirmBanner').classList.remove('show');
+    return;
+  }
+
+  const tutors = loadTutors();
+  const tutor = tutorId ? tutors.find(t => t.tutor_id === tutorId) : tutors.filter(t=>t.approved)[0];
+
+  const bookings = loadBookings();
+  const newBooking = {
+    booking_id: 'B' + String(bookings.length + 1).padStart(3, '0') + '-' + Date.now().toString().slice(-4),
+    student_id: 'S-NEW',
+    student_name: name,
+    tutor_id: tutor ? tutor.tutor_id : 'T000',
+    tutor_name: tutor ? tutor.name : 'Any available tutor',
+    subject: subject || (tutor ? tutor.subjects[0] : 'General'),
+    booking_date: new Date().toISOString().slice(0,10),
+    session_date: date,
+    time_slot: time,
+    status: 'Pending',
+    notes: notes
+  };
+  bookings.push(newBooking);
+  saveBookings(bookings);
+
+  const banner = document.getElementById('confirmBanner');
+  document.getElementById('confirmText').textContent =
+    `Booking confirmed — ${newBooking.tutor_name} will meet you ${date} at ${time} for ${newBooking.subject}.`;
+  banner.classList.add('show');
+
+  this.reset();
+  populateSubjectOptions();
+  showToast('Booking request submitted');
+});
+
+/* ---------- Dashboard (FR-05, FR-08, FR-12) ---------- */
+function statusClass(status){
+  return {
+    'Pending':'status-pending', 'Approved':'status-approved',
+    'Completed':'status-completed', 'Closed':'status-closed'
+  }[status] || 'status-pending';
+}
+
+function renderDashboard(){
+  const bookings = loadBookings();
+  const total = bookings.length;
+  const upcoming = bookings.filter(b => b.status === 'Pending' || b.status === 'Approved').length;
+  const completed = bookings.filter(b => b.status === 'Completed').length;
+  const successCount = bookings.filter(b => b.status === 'Approved' || b.status === 'Completed').length;
+  const successRate = total ? Math.round((successCount / total) * 100) : 0;
+
+  document.getElementById('db-total').textContent = total;
+  document.getElementById('db-total-delta').textContent = `${bookings.filter(b=>b.status==='Pending').length} pending`;
+  document.getElementById('db-upcoming').textContent = upcoming;
+  document.getElementById('db-completed').textContent = completed;
+  document.getElementById('db-success-rate').textContent = successRate + '%';
+
+  const sessionList = document.getElementById('db-session-list');
+  const recent = [...bookings].slice(-6).reverse();
+  sessionList.innerHTML = recent.length ? recent.map(b => `
+    <div class="session-row">
+      <span class="who">${b.subject} — ${b.tutor_name}</span>
+      <span class="status-pill ${statusClass(b.status)}">${b.status}</span>
+    </div>
+  `).join('') : '<div class="empty-state">No bookings yet. Try booking a session!</div>';
+
+  const bySubject = {};
+  bookings.forEach(b => { bySubject[b.subject] = (bySubject[b.subject] || 0) + 1; });
+  const maxCount = Math.max(1, ...Object.values(bySubject));
+  const bars = document.getElementById('db-subject-bars');
+  const entries = Object.entries(bySubject).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  bars.innerHTML = entries.length ? entries.map(([subject, count]) => `
+    <div class="bar-row">
+      <span class="bar-label">${subject}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${(count/maxCount)*100}%;"></div></div>
+      <span>${count}</span>
+    </div>
+  `).join('') : '<div class="empty-state">No data yet.</div>';
+}
+
+/* ---------- Admin (FR-08, FR-09) ---------- */
+function renderAdmin(){
+  const query = (document.getElementById('adminSearch').value || '').toLowerCase();
+  const tutors = loadTutors();
+  const bookings = loadBookings();
+
+  const pending = tutors.filter(t => !t.approved && (!query || t.name.toLowerCase().includes(query)));
+  document.getElementById('approvalsBody').innerHTML = pending.length ? pending.map(t => `
+    <tr>
+      <td>${t.name}</td><td>${t.subjects[0]}</td><td>Tutor (new)</td>
+      <td><span class="status-pill status-pending">Pending</span></td>
+      <td class="row-actions">
+        <button class="icon-btn" onclick="approveTutor('${t.tutor_id}')">Approve</button>
+        <button class="icon-btn danger" onclick="rejectTutor('${t.tutor_id}')">Reject</button>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);">No pending tutor applications.</td></tr>';
+
+  const approvedTutors = tutors.filter(t => t.approved && (!query || t.name.toLowerCase().includes(query)));
+  document.getElementById('usersBody').innerHTML = approvedTutors.length ? approvedTutors.map(t => `
+    <tr>
+      <td>${t.name}</td><td>${t.subjects[0]}</td><td>Tutor</td>
+      <td><span class="status-pill status-approved">Approved</span></td>
+      <td class="row-actions"><button class="icon-btn" disabled>Edit</button><button class="icon-btn danger" disabled>Delete</button></td>
+    </tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);">No users found.</td></tr>';
+
+  const filteredBookings = bookings.filter(b => !query ||
+    b.student_name.toLowerCase().includes(query) || b.booking_id.toLowerCase().includes(query) || b.subject.toLowerCase().includes(query));
+  document.getElementById('bookingsBody').innerHTML = filteredBookings.length ? [...filteredBookings].reverse().map(b => `
+    <tr>
+      <td>#${b.booking_id}</td><td>${b.student_name}</td><td>${b.tutor_name}</td><td>${b.subject}</td>
+      <td><span class="status-pill ${statusClass(b.status)}">${b.status}</span></td>
+      <td class="row-actions">
+        <select class="status-select" onchange="updateBookingStatus('${b.booking_id}', this.value)">
+          ${['Pending','Approved','Completed','Closed'].map(s => `<option value="${s}" ${s===b.status?'selected':''}>${s}</option>`).join('')}
+        </select>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="6" style="text-align:center;color:var(--ink-soft);">No bookings found.</td></tr>';
+}
+
+function approveTutor(tutorId){
+  const tutors = loadTutors();
+  const t = tutors.find(x => x.tutor_id === tutorId);
+  if(t){ t.approved = true; saveTutors(tutors); }
+  renderAdmin();
+  populateSubjectOptions();
+  showToast(`${t ? t.name : 'Tutor'} approved`);
+}
+
+function rejectTutor(tutorId){
+  let tutors = loadTutors();
+  const t = tutors.find(x => x.tutor_id === tutorId);
+  tutors = tutors.filter(x => x.tutor_id !== tutorId);
+  saveTutors(tutors);
+  renderAdmin();
+  populateSubjectOptions();
+  showToast(`${t ? t.name : 'Application'} rejected`);
+}
+
+function updateBookingStatus(bookingId, newStatus){
+  const bookings = loadBookings();
+  const b = bookings.find(x => x.booking_id === bookingId);
+  if(b){ b.status = newStatus; saveBookings(bookings); }
+  renderAdmin();
+  renderDashboard();
+  showToast(`Booking #${bookingId} set to ${newStatus}`);
+}
+
+document.getElementById('adminSearch').addEventListener('input', renderAdmin);
+
+/* ---------- Init ---------- */
+seedIfNeeded();
+populateSubjectOptions();
+renderHomeStats();
 </script>
 </body>
 </html>
